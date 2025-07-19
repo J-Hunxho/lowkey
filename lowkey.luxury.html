@@ -211,56 +211,59 @@
     </footer>
 
     <script defer>
-    (function() {
+    // CRITICAL FIX: Wrap all JS execution in a 'load' event listener.
+    // This ensures the script only runs after all HTML and CSS are fully rendered,
+    // preventing "hang-ups" on live deployment.
+    window.addEventListener('load', () => {
         'use strict';
 
-        window.addEventListener('load', () => {
-            // --- Animated Gold Flakes Background ---
-            const flakesContainer = document.getElementById('flakes-container');
-            if (flakesContainer) {
-                const flakeCount = 50;
-                for (let i = 0; i < flakeCount; i++) {
-                    const flake = document.createElement('div');
-                    flake.className = 'flake';
-                    flake.style.left = `${Math.random() * 100}%`;
-                    flake.style.width = `${Math.random() * 3 + 1}px`;
-                    flake.style.height = flake.style.width;
-                    flake.style.animationDelay = `${Math.random() * 10}s`;
-                    flake.style.animationDuration = `${Math.random() * 10 + 8}s`;
-                    flakesContainer.appendChild(flake);
-                }
+        // --- Animated Gold Flakes Background ---
+        const flakesContainer = document.getElementById('flakes-container');
+        if (flakesContainer) {
+            const flakeCount = 50;
+            for (let i = 0; i < flakeCount; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'flake';
+                flake.style.left = `${Math.random() * 100}%`;
+                flake.style.width = `${Math.random() * 3 + 1}px`;
+                flake.style.height = flake.style.width;
+                flake.style.animationDelay = `${Math.random() * 10}s`;
+                flake.style.animationDuration = `${Math.random() * 10 + 8}s`;
+                flakesContainer.appendChild(flake);
             }
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } });
-            }, { threshold: 0.2 });
-            document.querySelectorAll('.ghost-fade-in').forEach(el => observer.observe(el));
-            
-            document.querySelectorAll('.magnetic-btn').forEach(btn => {
-                btn.addEventListener('mousemove', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    this.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-                });
-                btn.addEventListener('mouseleave', function() { this.style.transform = 'translate(0,0)'; });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.ghost-fade-in').forEach(el => observer.observe(el));
+        
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                this.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
             });
+            btn.addEventListener('mouseleave', function() { this.style.transform = 'translate(0,0)'; });
+        });
 
-            // --- The Cipher: Secure Transmission ---
-            const cipherInput = document.getElementById('cipher-input');
-            const cipherOutput = document.getElementById('cipher-output');
-            const cipherKey = 'lowkey';
-            
-            function lowkeyCipher(text, key, encode = true) {
-                let result = "";
-                for (let i = 0; i < text.length; i++) {
-                    const charCode = text.charCodeAt(i);
-                    const keyCode = key.charCodeAt(i % key.length);
-                    result += String.fromCharCode(encode ? charCode + keyCode : charCode - keyCode);
-                }
-                return encode ? btoa(result) : atob(result);
+        // --- The Cipher: Secure Transmission ---
+        const cipherInput = document.getElementById('cipher-input');
+        const cipherOutput = document.getElementById('cipher-output');
+        const cipherKey = 'lowkey';
+        
+        function lowkeyCipher(text, key, encode = true) {
+            let result = "";
+            for (let i = 0; i < text.length; i++) {
+                const charCode = text.charCodeAt(i);
+                const keyCode = key.charCodeAt(i % key.length);
+                result += String.fromCharCode(encode ? charCode + keyCode : charCode - keyCode);
             }
-            
+            return encode ? btoa(result) : atob(result);
+        }
+        
+        if(cipherInput) {
             cipherInput.addEventListener('input', (e) => {
                 const text = e.target.value;
                 if(text) {
@@ -273,16 +276,19 @@
                     cipherOutput.value = "";
                 }
             });
+        }
 
-            // --- The Signal: Ghost Protocol (Steganography) ---
-            const signalFileInput = document.getElementById('signal-file-input');
-            const signalCanvas = document.getElementById('signal-image-canvas');
+        // --- The Signal: Ghost Protocol (Steganography) ---
+        const signalFileInput = document.getElementById('signal-file-input');
+        const signalCanvas = document.getElementById('signal-image-canvas');
+        const signalMessageInput = document.getElementById('signal-message');
+        const encodeBtn = document.getElementById('signal-encode-btn');
+        const decodeBtn = document.getElementById('signal-decode-btn');
+        const signalOutput = document.getElementById('signal-output');
+        const fileInputLabel = document.getElementById('file-input-label');
+        
+        if (signalFileInput) {
             const signalCtx = signalCanvas.getContext('2d');
-            const signalMessageInput = document.getElementById('signal-message');
-            const encodeBtn = document.getElementById('signal-encode-btn');
-            const decodeBtn = document.getElementById('signal-decode-btn');
-            const signalOutput = document.getElementById('signal-output');
-            const fileInputLabel = document.getElementById('file-input-label');
 
             signalFileInput.addEventListener('change', (e) => {
                 const file = e.target.files[0];
@@ -354,13 +360,14 @@
                 }
                 signalOutput.textContent = message ? `Decoded Signal: ${message}` : "No signal found.";
             });
+        }
 
-
-            // --- Gemini API & Telegram Bot Integration ---
-            const protocolSection = document.getElementById('protocol-section');
-            const oracleSection = document.getElementById('oracle-section');
-            const protocolForm = document.getElementById('protocol-form');
-            
+        // --- Gemini API & Telegram Bot Integration ---
+        const protocolSection = document.getElementById('protocol-section');
+        const oracleSection = document.getElementById('oracle-section');
+        const protocolForm = document.getElementById('protocol-form');
+        
+        if (protocolForm) {
             protocolForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const email = document.getElementById('protocol-email').value;
@@ -372,7 +379,6 @@
 
                 try {
                     // --- TELEGRAM BOT NOTIFICATION ---
-                    // Replace the URL with your actual Cloudflare Worker URL
                     const telegramEndpoint = 'YOUR_CLOUDFLARE_WORKER_URL'; 
                     /*
                     await fetch(telegramEndpoint, {
@@ -402,8 +408,10 @@
                     }, 2000);
                 }
             });
-            
-            const oracleForm = document.getElementById('oracle-form');
+        }
+        
+        const oracleForm = document.getElementById('oracle-form');
+        if (oracleForm) {
             oracleForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const question = document.getElementById('oracle-question').value.trim();
@@ -448,8 +456,8 @@
                     oracleSubmitBtn.disabled = false;
                 }
             });
-        });
-    })();
+        }
+    }); // End of window.onload
     </script>
 
 </body>
