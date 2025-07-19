@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for Character Set and Viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Lowkey | Subtlety is the New Status</title>
+    <meta name="description" content="Lowkey is an ideology expressed through objects and community. For those who understand that true influence is silent and legacy is built in the shadows.">
+    <meta name="keywords" content="Lowkey, subtlety, status, luxury, stealth wealth, minimalist, exclusive, members only, ideology, AI, Gemini, cipher, steganography">
+    <meta name="author" content="Lowkey">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:title" content="Lowkey | Subtlety is the New Status">
+    <meta property="og:description" content="An ideology for those who understand true influence is silent.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lowkey.luxury/">
+    <meta property="og:image" content="https://placehold.co/1200x630/0a0a0a/FFFFFF?text=LOWKEY">
+    <meta property="og:image:alt" content="The Lowkey Ideology">
+    <meta property="og:site_name" content="Lowkey">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lowkey | Subtlety is the New Status">
+    <meta name="twitter:description" content="An ideology for those who understand true influence is silent.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/0a0a0a/FFFFFF?text=LOWKEY">
+    <meta name="twitter:image:alt" content="The Lowkey Ideology">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-charcoal: #111111;
+            --color-gold: #c9b07a;
+            --color-text: #a9a9a9;
+            --font-primary: 'Roboto Condensed', sans-serif;
+            --font-secondary: 'Open Sans', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--color-black); color: var(--color-text); font-family: var(--font-secondary); line-height: 1.7; overflow-x: hidden; }
+        
+        /* Gold Flakes Background */
+        #flakes-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .flake {
+            position: absolute;
+            background-color: var(--color-gold);
+            border-radius: 50%;
+            opacity: 0.4;
+            box-shadow: 0 0 8px var(--color-gold);
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { top: -10%; transform: translateX(0); }
+            100% { top: 110%; transform: translateX(20px); }
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .stealth-section { padding: 8rem 0; position: relative; }
+        .hidden { display: none !important; }
+        .ghost-fade-in { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1); }
+        .ghost-fade-in.is-visible { opacity: 1; transform: translateY(0); }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
+        .hero__content h1 { font-family: var(--font-primary); font-size: clamp(3.5rem, 10vw, 6.5rem); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; line-height: 1.1; color: #fff; text-shadow: 0 0 30px rgba(201, 176, 122, 0.15); }
+        .section-heading { text-align: center; margin-bottom: 4rem; }
+        .section-heading h3 { font-family: var(--font-primary); font-size: 3rem; color: #fff; }
+        .section-heading p { max-width: 600px; margin: 0.5rem auto 0 auto; }
+        .manifesto__item { padding: 4rem 0; text-align: center; border-bottom: 1px solid #1a1a1a; }
+        .manifesto__item:last-child { border-bottom: none; }
+        .manifesto__item h2 { font-family: var(--font-primary); font-size: clamp(2.5rem, 7vw, 4.5rem); color: #e0e0e0; }
+        .product-teaser__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .product-teaser__item { background-color: var(--color-charcoal); aspect-ratio: 4 / 5; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 2rem; border: 1px solid #222; transition: border-color 0.3s; position: relative; }
+        .product-teaser__item::before { content: 'CLASSIFIED'; position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--font-primary); color: #444; font-size: 0.8rem; letter-spacing: 2px; }
+        .product-teaser__item span { font-family: var(--font-primary); color: #888; font-size: 1.5rem; }
+        .product-teaser__item:hover { border-color: var(--color-gold); }
+        .tool-panel { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        .tool-panel textarea, .tool-panel .file-input-wrapper { background-color: var(--color-charcoal); border: 1px solid #333; padding: 1.5rem; border-radius: 8px; }
+        .tool-panel textarea { width: 100%; color: #fff; font-family: 'Courier New', monospace; resize: vertical; min-height: 150px; }
+        .tool-panel textarea:focus { outline: none; border-color: var(--color-gold); }
+        .file-input-wrapper { text-align: center; cursor: pointer; }
+        .file-input-wrapper span { display: block; }
+        #signal-image-canvas { max-width: 100%; margin-top: 1rem; border-radius: 4px; }
+        .glass-panel { background: linear-gradient(135deg, rgba(10, 10, 10, 0.2), rgba(10, 10, 10, 0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(201, 176, 122, 0.2); border-radius: 12px; padding: 5rem; text-align: center; position: relative; overflow: hidden; }
+        .glass-panel::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(201, 176, 122, 0.1), transparent 40%); animation: aurora 15s linear infinite; z-index: -1; }
+        @keyframes aurora { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .glass-panel h3 { font-family: var(--font-primary); font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+        .glass-panel p { max-width: 500px; margin: 0 auto 2.5rem auto; color: #ccc; }
+        .form-input { background-color: rgba(0, 0, 0, 0.5); border: 1px solid #333; color: #fff; padding: 1rem 1.2rem; font-family: var(--font-secondary); font-size: 1rem; border-radius: 6px; transition: border-color 0.3s, box-shadow 0.3s; min-width: 300px; }
+        .form-input:focus { outline: none; border-color: var(--color-gold); box-shadow: 0 0 15px rgba(201, 176, 122, 0.2); }
+        .btn { background-color: var(--color-gold); color: var(--color-black); border: none; padding: 1rem 2.5rem; font-family: var(--font-primary); font-weight: 700; text-transform: uppercase; cursor: pointer; border-radius: 6px; transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; position: relative; }
+        .btn:disabled { background-color: #333; color: #666; cursor: not-allowed; }
+        .btn.lowkey-glow:hover:not(:disabled) { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(201, 176, 122, 0.25); }
+        #oracle-response { margin-top: 3rem; min-height: 100px; padding: 2rem; border: 1px dashed rgba(201, 176, 122, 0.2); border-radius: 6px; font-family: 'Courier New', Courier, monospace; font-size: 1.1rem; color: var(--color-gold); white-space: pre-wrap; text-align: left; }
+        .loader { border: 4px solid #333; border-top: 4px solid var(--color-gold); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 2rem auto 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .footer { background-color: #000; padding: 3rem 0; border-top: 1px solid #1a1a1a; }
+        .footer__content { display: flex; justify-content: space-between; align-items: center; }
+        .footer__copyright { color: #555; }
+        .footer__socials a { color: #555; margin-left: 1.5rem; text-decoration: none; transition: color 0.3s; }
+        .footer__socials a:hover { color: var(--color-gold); }
+        @media (max-width: 768px) { .footer__content { flex-direction: column; text-align: center; gap: 1rem; } .footer__socials a { margin: 0 0.75rem; } .tool-panel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <div id="flakes-container"></div>
+
+    <header class="hero" id="home">
+        <div class="container"><div class="hero__content"><h1>Lowkey. Subtlety is the New Status.</h1></div></div>
+    </header>
+
+    <main>
+        <section class="manifesto stealth-section" id="philosophy">
+            <div class="container">
+                <div class="manifesto__item ghost-fade-in"><h2>Volume is a weakness.</h2></div>
+                <div class="manifesto__item ghost-fade-in"><h2>Legacy is built in silence.</h2></div>
+                <div class="manifesto__item ghost-fade-in"><h2>The only signal that matters is the one they can't see.</h2></div>
+            </div>
+        </section>
+
+        <section class="product-teaser stealth-section" id="objects">
+            <div class="container">
+                <div class="section-heading ghost-fade-in">
+                    <h3>Objects of Intent</h3>
+                    <p>Ideology manifested. Each object is a tool, a statement, and a key, crafted not for display but for purpose.</p>
+                </div>
+                <div class="product-teaser__grid ghost-fade-in">
+                    <div class="product-teaser__item"><span>Object 001: The Veil</span></div>
+                    <div class="product-teaser__item"><span>Object 002: The Ghost</span></div>
+                    <div class="product-teaser__item"><span>Object 003: The Key</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools stealth-section" id="tools">
+            <div class="container">
+                <div class="section-heading ghost-fade-in">
+                    <h3>The Toolkit</h3>
+                    <p>True assets are not material. They are capabilities. We provide the instruments for operating in a world of noise.</p>
+                </div>
+                <div class="tool-panel ghost-fade-in">
+                    <!-- The Cipher -->
+                    <div id="cipher-tool">
+                        <h4>The Cipher: Secure Transmission</h4>
+                        <textarea id="cipher-input" placeholder="Plaintext..."></textarea>
+                        <textarea id="cipher-output" placeholder="Ciphertext..." readonly></textarea>
+                    </div>
+                    <!-- The Signal -->
+                    <div id="signal-tool">
+                        <h4>The Signal: Ghost Protocol</h4>
+                        <div class="file-input-wrapper" onclick="document.getElementById('signal-file-input').click()">
+                            <span id="file-input-label">Click to select an image carrier</span>
+                            <input type="file" id="signal-file-input" accept="image/png" class="hidden">
+                        </div>
+                        <canvas id="signal-image-canvas" class="hidden"></canvas>
+                        <textarea id="signal-message" placeholder="Hidden message... (max 255 chars)"></textarea>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button id="signal-encode-btn" class="btn">Encode & Download</button>
+                            <button id="signal-decode-btn" class="btn">Decode from Image</button>
+                        </div>
+                        <p id="signal-output" style="margin-top: 1rem; font-family: 'Courier New', monospace;"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="access-gate stealth-section" id="access">
+            <div class="container">
+                <div id="protocol-section" class="glass-panel ghost-fade-in">
+                    <h3>The Protocol</h3>
+                    <p>Influence is not requested; it is recognized. Provide your identifier. Consideration is the only promise.</p>
+                    <form id="protocol-form" class="waitlist__form">
+                        <input type="email" id="protocol-email" name="email" class="form-input" placeholder="Secure Identifier (Email)" required>
+                        <button type="submit" class="btn lowkey-glow magnetic-btn">Initiate Protocol</button>
+                    </form>
+                </div>
+                <div id="oracle-section" class="glass-panel hidden">
+                    <h3>The Oracle</h3>
+                    <p>The channel is open. Ask a question. Receive a reflection.</p>
+                    <form id="oracle-form" class="waitlist__form">
+                        <input type="text" id="oracle-question" name="question" class="form-input" placeholder="Pose your query..." required>
+                        <button type="submit" id="oracle-submit" class="btn lowkey-glow magnetic-btn">Consult</button>
+                    </form>
+                    <div id="oracle-loader" class="loader hidden"></div>
+                    <div id="oracle-response">Awaiting query...</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__copyright">&copy; 2025 Lowkey. All rights reserved. Operate in silence.</p>
+            <div class="footer__socials"><a href="#">[Redacted]</a><a href="#">[Redacted]</a></div>
+        </div>
+    </footer>
+
+    <script defer>
+    (function() {
+        'use strict';
+
+        window.addEventListener('load', () => {
+            // --- Animated Gold Flakes Background ---
+            const flakesContainer = document.getElementById('flakes-container');
+            if (flakesContainer) {
+                const flakeCount = 50;
+                for (let i = 0; i < flakeCount; i++) {
+                    const flake = document.createElement('div');
+                    flake.className = 'flake';
+                    flake.style.left = `${Math.random() * 100}%`;
+                    flake.style.width = `${Math.random() * 3 + 1}px`;
+                    flake.style.height = flake.style.width;
+                    flake.style.animationDelay = `${Math.random() * 10}s`;
+                    flake.style.animationDuration = `${Math.random() * 10 + 8}s`;
+                    flakesContainer.appendChild(flake);
+                }
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.ghost-fade-in').forEach(el => observer.observe(el));
+            
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    this.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+                });
+                btn.addEventListener('mouseleave', function() { this.style.transform = 'translate(0,0)'; });
+            });
+
+            // --- The Cipher: Secure Transmission ---
+            const cipherInput = document.getElementById('cipher-input');
+            const cipherOutput = document.getElementById('cipher-output');
+            const cipherKey = 'lowkey';
+            
+            function lowkeyCipher(text, key, encode = true) {
+                let result = "";
+                for (let i = 0; i < text.length; i++) {
+                    const charCode = text.charCodeAt(i);
+                    const keyCode = key.charCodeAt(i % key.length);
+                    result += String.fromCharCode(encode ? charCode + keyCode : charCode - keyCode);
+                }
+                return encode ? btoa(result) : atob(result);
+            }
+            
+            cipherInput.addEventListener('input', (e) => {
+                const text = e.target.value;
+                if(text) {
+                    try {
+                        cipherOutput.value = lowkeyCipher(text, cipherKey, true);
+                    } catch(err) {
+                        cipherOutput.value = "Invalid character for encoding.";
+                    }
+                } else {
+                    cipherOutput.value = "";
+                }
+            });
+
+            // --- The Signal: Ghost Protocol (Steganography) ---
+            const signalFileInput = document.getElementById('signal-file-input');
+            const signalCanvas = document.getElementById('signal-image-canvas');
+            const signalCtx = signalCanvas.getContext('2d');
+            const signalMessageInput = document.getElementById('signal-message');
+            const encodeBtn = document.getElementById('signal-encode-btn');
+            const decodeBtn = document.getElementById('signal-decode-btn');
+            const signalOutput = document.getElementById('signal-output');
+            const fileInputLabel = document.getElementById('file-input-label');
+
+            signalFileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file && file.type === "image/png") {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const img = new Image();
+                        img.onload = () => {
+                            signalCanvas.width = img.width;
+                            signalCanvas.height = img.height;
+                            signalCtx.drawImage(img, 0, 0);
+                            signalCanvas.classList.remove('hidden');
+                            fileInputLabel.textContent = file.name;
+                        };
+                        img.src = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    signalOutput.textContent = "Error: Please select a valid PNG image.";
+                }
+            });
+
+            encodeBtn.addEventListener('click', () => {
+                const message = signalMessageInput.value;
+                if (!signalCanvas.width || !message) {
+                    signalOutput.textContent = "Error: Image and message are required to encode.";
+                    return;
+                }
+                
+                const imageData = signalCtx.getImageData(0, 0, signalCanvas.width, signalCanvas.height);
+                const data = imageData.data;
+                const binaryMessage = message.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join('') + '11111111'; // Add delimiter
+
+                if (binaryMessage.length > data.length / 4) {
+                    signalOutput.textContent = "Error: Message is too long for this image.";
+                    return;
+                }
+
+                for (let i = 0; i < binaryMessage.length; i++) {
+                    data[i * 4] = (data[i * 4] & 0xFE) | parseInt(binaryMessage[i], 2);
+                }
+                
+                signalCtx.putImageData(imageData, 0, 0);
+                const dataUrl = signalCanvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = 'lowkey-signal.png';
+                link.href = dataUrl;
+                link.click();
+                signalOutput.textContent = "Signal encoded and downloaded.";
+            });
+
+            decodeBtn.addEventListener('click', () => {
+                if (!signalCanvas.width) {
+                    signalOutput.textContent = "Error: Load an image to decode.";
+                    return;
+                }
+                const imageData = signalCtx.getImageData(0, 0, signalCanvas.width, signalCanvas.height);
+                const data = imageData.data;
+                let binaryMessage = '';
+                for (let i = 0; i < data.length; i += 4) {
+                    binaryMessage += (data[i] & 1).toString();
+                }
+                
+                const bytes = binaryMessage.match(/.{1,8}/g);
+                let message = '';
+                for (const byte of bytes) {
+                    if (byte === '11111111') break; // Delimiter found
+                    message += String.fromCharCode(parseInt(byte, 2));
+                }
+                signalOutput.textContent = message ? `Decoded Signal: ${message}` : "No signal found.";
+            });
+
+
+            // --- Gemini API & Telegram Bot Integration ---
+            const protocolSection = document.getElementById('protocol-section');
+            const oracleSection = document.getElementById('oracle-section');
+            const protocolForm = document.getElementById('protocol-form');
+            
+            protocolForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('protocol-email').value;
+                const submitButton = e.target.querySelector('button');
+                if (!email) return;
+
+                submitButton.disabled = true;
+                submitButton.textContent = 'Transmitting...';
+
+                try {
+                    // --- TELEGRAM BOT NOTIFICATION ---
+                    // Replace the URL with your actual Cloudflare Worker URL
+                    const telegramEndpoint = 'YOUR_CLOUDFLARE_WORKER_URL'; 
+                    /*
+                    await fetch(telegramEndpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email })
+                    });
+                    */
+                    console.log("Telegram notification would be sent for:", email); // Placeholder for testing
+
+                    // Transition to Oracle
+                    protocolSection.style.transition = 'opacity 0.5s ease-out';
+                    protocolSection.style.opacity = '0';
+                    setTimeout(() => {
+                        protocolSection.classList.add('hidden');
+                        oracleSection.classList.remove('hidden');
+                        oracleSection.classList.add('ghost-fade-in');
+                        setTimeout(() => oracleSection.classList.add('is-visible'), 50);
+                    }, 500);
+
+                } catch (error) {
+                    console.error('Protocol Initiation Failed:', error);
+                    submitButton.textContent = 'Transmission Failed';
+                    setTimeout(() => {
+                         submitButton.disabled = false;
+                         submitButton.textContent = 'Initiate Protocol';
+                    }, 2000);
+                }
+            });
+            
+            const oracleForm = document.getElementById('oracle-form');
+            oracleForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const question = document.getElementById('oracle-question').value.trim();
+                const oracleLoader = document.getElementById('oracle-loader');
+                const oracleResponseEl = document.getElementById('oracle-response');
+                const oracleSubmitBtn = document.getElementById('oracle-submit');
+                if (!question) return;
+
+                oracleLoader.classList.remove('hidden');
+                oracleResponseEl.textContent = 'Consulting the stream...';
+                oracleSubmitBtn.disabled = true;
+                
+                const systemPrompt = "You are a cryptic oracle. Respond to the user's question with a short, profound, philosophical insight of one or two sentences. Do not be conversational. Be mysterious and abstract.";
+                const fullPrompt = `${systemPrompt}\n\nUser's question: "${question}"`;
+
+                try {
+                    let chatHistory = [{ role: "user", parts: [{ text: fullPrompt }] }];
+                    const payload = { contents: chatHistory };
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                    
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0) {
+                        oracleResponseEl.textContent = result.candidates[0].content.parts[0].text;
+                    } else {
+                        throw new Error("Invalid response structure from API.");
+                    }
+
+                } catch (error) {
+                    console.error("Oracle Error:", error);
+                    oracleResponseEl.textContent = "The signal is weak. Try again later.";
+                } finally {
+                    oracleLoader.classList.add('hidden');
+                    oracleSubmitBtn.disabled = false;
+                }
+            });
+        });
+    })();
+    </script>
+
+</body>
+</html>
