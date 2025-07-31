@@ -45,29 +45,9 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--color-black); color: var(--color-text); font-family: var(--font-secondary); line-height: 1.7; overflow-x: hidden; }
         
-        /* Gold Flakes Background */
-        #flakes-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .flake {
-            position: absolute;
-            background-color: var(--color-gold);
-            border-radius: 50%;
-            opacity: 0.4;
-            box-shadow: 0 0 8px var(--color-gold);
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { top: -10%; transform: translateX(0); }
-            100% { top: 110%; transform: translateX(20px); }
-        }
+        #flakes-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; pointer-events: none; }
+        .flake { position: absolute; background-color: var(--color-gold); border-radius: 50%; opacity: 0.4; box-shadow: 0 0 8px var(--color-gold); animation: fall linear infinite; }
+        @keyframes fall { 0% { top: -10%; transform: translateX(0); } 100% { top: 110%; transform: translateX(20px); } }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
         .stealth-section { padding: 8rem 0; position: relative; }
@@ -107,6 +87,19 @@
         #oracle-response { margin-top: 3rem; min-height: 100px; padding: 2rem; border: 1px dashed rgba(201, 176, 122, 0.2); border-radius: 6px; font-family: 'Courier New', Courier, monospace; font-size: 1.1rem; color: var(--color-gold); white-space: pre-wrap; text-align: left; }
         .loader { border: 4px solid #333; border-top: 4px solid var(--color-gold); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 2rem auto 0 auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* New Letter/Invitation Styling */
+        #letter-section { cursor: pointer; perspective: 1000px; }
+        .envelope { position: relative; width: 200px; height: 125px; background-color: #1a1a1a; border: 1px solid #333; border-radius: 4px; margin: 2rem auto; transition: transform 0.5s; }
+        .envelope-flap { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #1f1f1f; transform-origin: top; transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55); clip-path: polygon(0 0, 100% 0, 50% 50%); }
+        #letter-section.open .envelope-flap { transform: rotateX(180deg); }
+        .letter-prompt { color: var(--color-gold); font-family: var(--font-primary); text-align: center; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+
+        /* New Telegram Link Styling */
+        #telegram-link { display: block; text-align: center; margin-top: 3rem; color: #666; font-family: var(--font-primary); text-decoration: none; letter-spacing: 1px; transition: color 0.3s, text-shadow 0.3s; }
+        #telegram-link:hover { color: var(--color-gold); text-shadow: 0 0 10px var(--color-gold); }
+
         .footer { background-color: #000; padding: 3rem 0; border-top: 1px solid #1a1a1a; }
         .footer__content { display: flex; justify-content: space-between; align-items: center; }
         .footer__copyright { color: #555; }
@@ -153,13 +146,11 @@
                     <p>True assets are not material. They are capabilities. We provide the instruments for operating in a world of noise.</p>
                 </div>
                 <div class="tool-panel ghost-fade-in">
-                    <!-- The Cipher -->
                     <div id="cipher-tool">
                         <h4>The Cipher: Secure Transmission</h4>
                         <textarea id="cipher-input" placeholder="Plaintext..."></textarea>
                         <textarea id="cipher-output" placeholder="Ciphertext..." readonly></textarea>
                     </div>
-                    <!-- The Signal -->
                     <div id="signal-tool">
                         <h4>The Signal: Ghost Protocol</h4>
                         <div class="file-input-wrapper" onclick="document.getElementById('signal-file-input').click()">
@@ -188,15 +179,26 @@
                         <button type="submit" class="btn lowkey-glow magnetic-btn">Initiate Protocol</button>
                     </form>
                 </div>
-                <div id="oracle-section" class="glass-panel hidden">
-                    <h3>The Oracle</h3>
-                    <p>The channel is open. Ask a question. Receive a reflection.</p>
-                    <form id="oracle-form" class="waitlist__form">
-                        <input type="text" id="oracle-question" name="question" class="form-input" placeholder="Pose your query..." required>
-                        <button type="submit" id="oracle-submit" class="btn lowkey-glow magnetic-btn">Consult</button>
-                    </form>
-                    <div id="oracle-loader" class="loader hidden"></div>
-                    <div id="oracle-response">Awaiting query...</div>
+
+                <div id="letter-section" class="hidden ghost-fade-in">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <p class="letter-prompt">[ Click to Unseal ]</p>
+                </div>
+
+                <div id="unlocked-content" class="hidden">
+                    <div id="oracle-section" class="glass-panel">
+                        <h3>The Oracle</h3>
+                        <p>The channel is open. Ask a question. Receive a reflection.</p>
+                        <form id="oracle-form" class="waitlist__form">
+                            <input type="text" id="oracle-question" name="question" class="form-input" placeholder="Pose your query..." required>
+                            <button type="submit" id="oracle-submit" class="btn lowkey-glow magnetic-btn">Consult</button>
+                        </form>
+                        <div id="oracle-loader" class="loader hidden"></div>
+                        <div id="oracle-response">Awaiting query...</div>
+                    </div>
+                    <a href="YOUR_TELEGRAM_CHANNEL_LINK_HERE" target="_blank" id="telegram-link">[ Open Secure Comms Channel ]</a>
                 </div>
             </div>
         </section>
@@ -211,13 +213,9 @@
     </footer>
 
     <script defer>
-    // CRITICAL FIX: Wrap all JS execution in a 'load' event listener.
-    // This ensures the script only runs after all HTML and CSS are fully rendered,
-    // preventing "hang-ups" on live deployment.
     window.addEventListener('load', () => {
         'use strict';
 
-        // --- Animated Gold Flakes Background ---
         const flakesContainer = document.getElementById('flakes-container');
         if (flakesContainer) {
             const flakeCount = 50;
@@ -248,7 +246,6 @@
             btn.addEventListener('mouseleave', function() { this.style.transform = 'translate(0,0)'; });
         });
 
-        // --- The Cipher: Secure Transmission ---
         const cipherInput = document.getElementById('cipher-input');
         const cipherOutput = document.getElementById('cipher-output');
         const cipherKey = 'lowkey';
@@ -278,17 +275,15 @@
             });
         }
 
-        // --- The Signal: Ghost Protocol (Steganography) ---
         const signalFileInput = document.getElementById('signal-file-input');
-        const signalCanvas = document.getElementById('signal-image-canvas');
-        const signalMessageInput = document.getElementById('signal-message');
-        const encodeBtn = document.getElementById('signal-encode-btn');
-        const decodeBtn = document.getElementById('signal-decode-btn');
-        const signalOutput = document.getElementById('signal-output');
-        const fileInputLabel = document.getElementById('file-input-label');
-        
         if (signalFileInput) {
+            const signalCanvas = document.getElementById('signal-image-canvas');
             const signalCtx = signalCanvas.getContext('2d');
+            const signalMessageInput = document.getElementById('signal-message');
+            const encodeBtn = document.getElementById('signal-encode-btn');
+            const decodeBtn = document.getElementById('signal-decode-btn');
+            const signalOutput = document.getElementById('signal-output');
+            const fileInputLabel = document.getElementById('file-input-label');
 
             signalFileInput.addEventListener('change', (e) => {
                 const file = e.target.files[0];
@@ -320,7 +315,7 @@
                 
                 const imageData = signalCtx.getImageData(0, 0, signalCanvas.width, signalCanvas.height);
                 const data = imageData.data;
-                const binaryMessage = message.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join('') + '11111111'; // Add delimiter
+                const binaryMessage = message.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join('') + '11111111';
 
                 if (binaryMessage.length > data.length / 4) {
                     signalOutput.textContent = "Error: Message is too long for this image.";
@@ -355,16 +350,16 @@
                 const bytes = binaryMessage.match(/.{1,8}/g);
                 let message = '';
                 for (const byte of bytes) {
-                    if (byte === '11111111') break; // Delimiter found
+                    if (byte === '11111111') break;
                     message += String.fromCharCode(parseInt(byte, 2));
                 }
                 signalOutput.textContent = message ? `Decoded Signal: ${message}` : "No signal found.";
             });
         }
 
-        // --- Gemini API & Telegram Bot Integration ---
         const protocolSection = document.getElementById('protocol-section');
-        const oracleSection = document.getElementById('oracle-section');
+        const letterSection = document.getElementById('letter-section');
+        const unlockedContent = document.getElementById('unlocked-content');
         const protocolForm = document.getElementById('protocol-form');
         
         if (protocolForm) {
@@ -378,25 +373,14 @@
                 submitButton.textContent = 'Transmitting...';
 
                 try {
-                    // --- TELEGRAM BOT NOTIFICATION ---
-                    const telegramEndpoint = 'YOUR_CLOUDFLARE_WORKER_URL'; 
-                    /*
-                    await fetch(telegramEndpoint, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email: email })
-                    });
-                    */
-                    console.log("Telegram notification would be sent for:", email); // Placeholder for testing
+                    console.log("Telegram notification would be sent for:", email);
 
-                    // Transition to Oracle
                     protocolSection.style.transition = 'opacity 0.5s ease-out';
                     protocolSection.style.opacity = '0';
                     setTimeout(() => {
                         protocolSection.classList.add('hidden');
-                        oracleSection.classList.remove('hidden');
-                        oracleSection.classList.add('ghost-fade-in');
-                        setTimeout(() => oracleSection.classList.add('is-visible'), 50);
+                        letterSection.classList.remove('hidden');
+                        letterSection.classList.add('is-visible');
                     }, 500);
 
                 } catch (error) {
@@ -408,6 +392,21 @@
                     }, 2000);
                 }
             });
+        }
+
+        if (letterSection) {
+            letterSection.addEventListener('click', () => {
+                letterSection.classList.add('open');
+                setTimeout(() => {
+                    letterSection.style.transition = 'opacity 0.5s ease-out';
+                    letterSection.style.opacity = '0';
+                    setTimeout(() => {
+                        letterSection.classList.add('hidden');
+                        unlockedContent.classList.remove('hidden');
+                        unlockedContent.classList.add('ghost-fade-in', 'is-visible');
+                    }, 500);
+                }, 800); 
+            }, { once: true });
         }
         
         const oracleForm = document.getElementById('oracle-form');
@@ -430,8 +429,8 @@
                 try {
                     let chatHistory = [{ role: "user", parts: [{ text: fullPrompt }] }];
                     const payload = { contents: chatHistory };
-                    const apiKey = "AIzaSyBK2R2tg5pifniF-8toXIp_KSCEs2XAMXw";
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                    const apiKey = ""; // IMPORTANT: Replace with your own Gemini API Key for live deployment
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${AIzaSyBK2R2tg5pifniF-8toXIp_KSCEs2XAMXw}`;
                     
                     const response = await fetch(apiUrl, {
                         method: 'POST',
@@ -457,17 +456,8 @@
                 }
             });
         }
-    }); // End of window.onload
+    });
     </script>
 
 </body>
 </html>
-
-import os
-from azure.ai.inference import ChatCompletionsClient
-from azure.ai.inference.models import SystemMessage, UserMessage
-from azure.core.credentials import AzureKeyCredential
-
-endpoint = "https://models.github.ai/inference"
-model = "openai/gpt-4.1"
-token = os.environ["GITHUB_TOKEN"]
