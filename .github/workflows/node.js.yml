@@ -21,11 +21,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
+      if: hashFiles('package-lock.json') != ''
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+
+    - name: Install dependencies
+      run: npm ci
+      if: hashFiles('package-lock.json') != ''
+
+    - name: Build
+      run: npm run build --if-present
+      if: hashFiles('package-lock.json') != ''
+
+    - name: Test
+      run: npm test
+      if: hashFiles('package-lock.json') != ''
+
+    - name: Static site - no build needed
+      run: echo "No Node.js build necessary"
+      if: hashFiles('package-lock.json') == ''
