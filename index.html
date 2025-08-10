@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags for Character Set and Viewport -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>Lowkey | Subtlety is the New Status</title>
+    <meta
+      name="description"
+      content="Lowkey is an ideology expressed through objects and community. For those who understand that true influence is silent and legacy is built in the shadows."
+    />
+    <meta
+      name="keywords"
+      content="Lowkey, subtlety, status, luxury, stealth wealth, minimalist, exclusive, members only, ideology, AI, Gemini, cipher, steganography"
+    />
+    <meta name="author" content="Lowkey" />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:title" content="Lowkey | Subtlety is the New Status" />
+    <meta
+      property="og:description"
+      content="An ideology for those who understand true influence is silent."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lowkey.luxury/" />
+    <meta
+      property="og:image"
+      content="https://placehold.co/1200x630/0a0a0a/FFFFFF?text=LOWKEY"
+    />
+    <meta property="og:image:alt" content="The Lowkey Ideology" />
+    <meta property="og:site_name" content="Lowkey" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lowkey | Subtlety is the New Status" />
+    <meta
+      name="twitter:description"
+      content="An ideology for those who understand true influence is silent."
+    />
+    <meta
+      name="twitter:image"
+      content="https://placehold.co/1200x630/0a0a0a/FFFFFF?text=LOWKEY"
+    />
+    <meta name="twitter:image:alt" content="The Lowkey Ideology" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="canonical" href="https://lowkey.luxury/" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="flakes-container"></div>
+
+    <header class="hero" id="home">
+      <div class="container">
+        <div class="hero__content">
+          <h1>Lowkey. Subtlety is the New Status.</h1>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="manifesto stealth-section" id="philosophy">
+        <div class="container">
+          <div class="manifesto__item ghost-fade-in">
+            <h2>Volume is a weakness.</h2>
+          </div>
+          <div class="manifesto__item ghost-fade-in">
+            <h2>Legacy is built in silence.</h2>
+          </div>
+          <div class="manifesto__item ghost-fade-in">
+            <h2>The only signal that matters is the one they can't see.</h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-teaser stealth-section" id="objects">
+        <div class="container">
+          <div class="section-heading ghost-fade-in">
+            <h3>Objects of Intent</h3>
+            <p>
+              Ideology manifested. Each object is a tool, a statement, and a
+              key, crafted not for display but for purpose.
+            </p>
+          </div>
+          <div class="product-teaser__grid ghost-fade-in">
+            <div class="product-teaser__item">
+              <span>Object 001: The Veil</span>
+            </div>
+            <div class="product-teaser__item">
+              <span>Object 002: The Ghost</span>
+            </div>
+            <div class="product-teaser__item">
+              <span>Object 003: The Key</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tools stealth-section" id="tools">
+        <div class="container">
+          <div class="section-heading ghost-fade-in">
+            <h3>The Toolkit</h3>
+            <p>
+              True assets are not material. They are capabilities. We provide
+              the instruments for operating in a world of noise.
+            </p>
+          </div>
+          <div class="tool-panel ghost-fade-in">
+            <div id="cipher-tool">
+              <h4>The Cipher: Secure Transmission</h4>
+              <textarea id="cipher-input" placeholder="Plaintext..."></textarea>
+              <textarea
+                id="cipher-output"
+                placeholder="Ciphertext..."
+                readonly
+              ></textarea>
+            </div>
+            <div id="signal-tool">
+              <h4>The Signal: Ghost Protocol</h4>
+              <div
+                class="file-input-wrapper"
+                onclick="document.getElementById('signal-file-input').click()"
+              >
+                <span id="file-input-label"
+                  >Click to select an image carrier</span
+                >
+                <input
+                  type="file"
+                  id="signal-file-input"
+                  accept="image/png"
+                  class="hidden"
+                />
+              </div>
+              <canvas id="signal-image-canvas" class="hidden"></canvas>
+              <textarea
+                id="signal-message"
+                placeholder="Hidden message... (max 255 chars)"
+              ></textarea>
+              <div style="display: flex; gap: 1rem; margin-top: 1rem">
+                <button id="signal-encode-btn" class="btn">
+                  Encode & Download
+                </button>
+                <button id="signal-decode-btn" class="btn">
+                  Decode from Image
+                </button>
+              </div>
+              <p
+                id="signal-output"
+                style="
+                  margin-top: 1rem;
+                  font-family: &quot;Courier New&quot;, monospace;
+                "
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="access-gate stealth-section" id="access">
+        <div class="container">
+          <div id="protocol-section" class="glass-panel ghost-fade-in">
+            <h3>The Protocol</h3>
+            <p>
+              Influence is not requested; it is recognized. Provide your
+              identifier. Consideration is the only promise.
+            </p>
+            <form id="protocol-form" class="waitlist__form">
+              <input
+                type="email"
+                id="protocol-email"
+                name="email"
+                class="form-input"
+                placeholder="Secure Identifier (Email)"
+                required
+              />
+              <button type="submit" class="btn lowkey-glow magnetic-btn">
+                Initiate Protocol
+              </button>
+            </form>
+          </div>
+
+          <div id="letter-section" class="hidden ghost-fade-in">
+            <div class="envelope">
+              <div class="envelope-flap"></div>
+            </div>
+            <p class="letter-prompt">[ Click to Unseal ]</p>
+          </div>
+
+          <div id="unlocked-content" class="hidden">
+            <div id="oracle-section" class="glass-panel">
+              <h3>The Oracle</h3>
+              <p>The channel is open. Ask a question. Receive a reflection.</p>
+              <form id="oracle-form" class="waitlist__form">
+                <input
+                  type="text"
+                  id="oracle-question"
+                  name="question"
+                  class="form-input"
+                  placeholder="Pose your query..."
+                  required
+                />
+                <button
+                  type="submit"
+                  id="oracle-submit"
+                  class="btn lowkey-glow magnetic-btn"
+                >
+                  Consult
+                </button>
+              </form>
+              <div id="oracle-loader" class="loader hidden"></div>
+              <div id="oracle-response">Awaiting query...</div>
+            </div>
+            <a
+              href="YOUR_TELEGRAM_CHANNEL_LINK_HERE"
+              target="_blank"
+              id="telegram-link"
+              >[ Open Secure Comms Channel ]</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__content">
+        <p class="footer__copyright">
+          &copy; 2025 Lowkey. All rights reserved. Operate in silence.
+        </p>
+        <div class="footer__socials">
+          <a href="#">[Redacted]</a><a href="#">[Redacted]</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
