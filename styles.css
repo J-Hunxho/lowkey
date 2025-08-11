@@ -360,19 +360,11 @@ body {
 /* New Telegram Link Styling */
 #telegram-link {
   display: block;
+  width: max-content;
+  margin: 3rem auto 0;
+  font-size: 1.25rem;
+  padding: 1.5rem 3rem;
   text-align: center;
-  margin-top: 3rem;
-  color: #666;
-  font-family: var(--font-primary);
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition:
-    color 0.3s,
-    text-shadow 0.3s;
-}
-#telegram-link:hover {
-  color: var(--color-gold);
-  text-shadow: 0 0 10px var(--color-gold);
 }
 
 .footer {

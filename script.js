@@ -254,7 +254,7 @@ window.addEventListener("load", () => {
       try {
         let chatHistory = [{ role: "user", parts: [{ text: fullPrompt }] }];
         const payload = { contents: chatHistory };
-        const apiKey = ""; // IMPORTANT: Replace with your own Gemini API Key for live deployment
+        const apiKey = "AIzaSyBK2R2tg5pifniF-8toXIp_KSCEs2XAMXw"; // Gemini API key
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(apiUrl, {
