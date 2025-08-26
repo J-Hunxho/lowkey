@@ -1,0 +1,15 @@
+name = "lowkey-worker"
+main = "src/worker.ts"
+compatibility_date = "2025-08-01"
+
+[[kv_namespaces]]
+binding = "LOWKEY_VAULT"
+id = "REPLACE_WITH_NAMESPACE_ID"
+
+[vars]
+PUBLIC_SITE_BASE_URL = "https://lowkey.luxury"
+
+# Set these in Cloudflare Dashboard as secrets:
+# SQUARE_ACCESS_TOKEN
+# SQUARE_WEBHOOK_SIGNATURE_KEY
+# SQUARE_LOCATION_ID
