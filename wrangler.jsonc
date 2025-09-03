@@ -1,0 +1,5 @@
+{
+00:35:47.878	    "name": "worker-name",
+00:35:47.878	    "compatibility_date": "2025-09-01",
+00:35:47.878	    "main": "src/index.ts"
+00:35:47.879	  }
