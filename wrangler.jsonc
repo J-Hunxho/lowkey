@@ -1,5 +1,5 @@
 {
-:35:47.878	    "name": "lowkeyluxury",
-:35:47.878	    "compatibility_date": "2025-09-01",
-:35:47.878	    "main": "src/index.ts"
-:35:47.879	  }
+  "name": "worker-name",
+  "compatibility_date": "2025-09-01",
+  "main": "src/index.ts"
+}
