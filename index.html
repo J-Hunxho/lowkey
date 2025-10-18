@@ -1,245 +1,686 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Tags for Character Set and Viewport -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowkey. Subtlety is the New Status.</title>
+    <meta name="description" content="Lowkey is the stealth-wealth collective built for outliers. Designed for those who choose to stay unseen.">
+    <meta property="og:title" content="Lowkey. Subtlety is the New Status.">
+    <meta property="og:description" content="The exclusive collective built for those who lead in silence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="[YOUR-LIVE-URL-HERE]">
+    <meta property="og:image" content="[PLACEHOLDER-OPEN-GRAPH-IMAGE-URL]">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --color-black-deep: #0e0e0e;
+            --color-charcoal: #1c1c1c;
+            --color-gold-muted: #ffd700;
+            --color-neon-green: #00ff99;
+            --color-text-light: #e0e0e0;
+            --color-glass-bg: rgba(28, 28, 28, 0.7);
+            --font-header: 'Roboto Condensed', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --transition-speed: 0.3s;
+        }
 
-    <!-- SEO Meta Tags -->
-    <title>Lowkey | Subtlety is the New Status</title>
-    <meta
-      name="description"
-      content="Lowkey is an ideology expressed through objects and community. For those who understand that true influence is silent and legacy is built in the shadows."
-    />
-    <meta
-      name="keywords"
-      content="Lowkey, subtlety, status, luxury, stealth wealth, minimalist, exclusive, members only, ideology, AI, Gemini, cipher, steganography"
-    />
-    <meta name="author" content="Lowkey" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:title" content="Lowkey | Subtlety is the New Status" />
-    <meta
-      property="og:description"
-      content="An ideology for those who understand true influence is silent."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.lowkey.luxury/" />
-    <meta
-      property="og:image"
-      content="https://placehold.co/1200x630/0a0a0a/FFFFFF?text=LOWKEY"
-    />
-    <meta property="og:image:alt" content="The Lowkey Ideology" />
-    <meta property="og:site_name" content="Lowkey" />
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-black-deep);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Subtle Grain Texture Overlay */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpiYGBgYGJgoOCXjYGNjIAAAAB2AE/gE879AAAAAElFTkSuQmCC');
+        }
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Lowkey | Subtlety is the New Status" />
-    <meta
-      name="twitter:description"
-      content="An ideology for those who understand true influence is silent."
-    />
-    <meta
-      name="twitter:image"
-      content="https://placehold.co/1200x630/0a0a0a/FFFFFF?text=LOWKEY"
-    />
-    <meta name="twitter:image:alt" content="The Lowkey Ideology" />
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="canonical" href="https://lowkey.luxury/" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div id="flakes-container"></div>
+        .lowkey-glow {
+            color: var(--color-neon-green);
+            text-shadow: 0 0 5px var(--color-neon-green), 0 0 10px rgba(0, 255, 153, 0.5);
+        }
 
-    <header class="hero" id="home">
-      <div class="container">
-        <div class="hero__content">
-          <h1>Lowkey. Subtlety is the New Status.</h1>
-        </div>
-      </div>
+        .stealth-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-header);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            font-size: 1rem;
+            max-width: 700px;
+        }
+        
+        /* Buttons and CTAs (Magnetic Effect Target) */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-top: 20px;
+            background: var(--color-charcoal);
+            border: 1px solid var(--color-neon-green);
+            color: var(--color-neon-green);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: transform 0.2s ease-out, box-shadow var(--transition-speed);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            background: var(--color-neon-green);
+            color: var(--color-black-deep);
+            box-shadow: 0 0 15px rgba(0, 255, 153, 0.6);
+            transform: scale(1.05); /* Slight lift on hover */
+        }
+        
+        /* Header and Footer */
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            background: var(--color-black-deep);
+            border-bottom: 1px solid var(--color-charcoal);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+        
+        .nav-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin-left: 25px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed), color var(--transition-speed);
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--color-neon-green);
+        }
+
+        footer {
+            background: var(--color-charcoal);
+            border-top: 1px solid var(--color-charcoal);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .social-links a {
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .social-links a:hover {
+            color: var(--color-neon-green);
+        }
+        
+        /* Hero Section (Interactive Canvas) */
+        #hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.2; /* Subtlety is key */
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            margin-bottom: 10px;
+        }
+        
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            opacity: 0.8;
+            letter-spacing: 3px;
+        }
+
+        /* Ghost Fade In Animation */
+        .ghost-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        
+        .ghost-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MANIFESTO SECTION (Parallax Effect) */
+        #manifesto {
+            background-color: var(--color-charcoal);
+            color: var(--color-text-light);
+            text-align: center;
+            background-image: linear-gradient(rgba(14, 14, 14, 0.8), rgba(14, 14, 14, 0.8)), url('https://via.placeholder.com/1920x1080?text=Abstract+Background');
+            background-attachment: fixed; /* Parallax effect */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .manifesto-line {
+            font-family: var(--font-header);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin: 50px auto;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            max-width: 800px;
+            color: rgba(255, 255, 255, 0.1); /* Subtle initial state */
+            transition: color 1s ease-out;
+        }
+
+        .manifesto-line.is-visible {
+            color: var(--color-text-light);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+
+        /* ABOUT Section */
+        #about {
+            text-align: center;
+        }
+
+        #about h2 {
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--color-charcoal);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* PRODUCT TEASER (Grid) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-item {
+            background: var(--color-charcoal);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+        }
+        
+        .product-item:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .product-item-placeholder {
+            width: 100%;
+            height: 200px;
+            background: var(--color-black-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.3);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        /* MEMBERSHIP WAITLIST (Glassmorphism) */
+        #waitlist {
+            padding: 100px 0;
+            background: var(--color-black-deep);
+        }
+
+        .waitlist-card {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            background: var(--color-glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            /* Subtle Aurora Background for Glassmorphism */
+            background-image: radial-gradient(circle at top left, rgba(0, 255, 153, 0.1), transparent 50%),
+                              radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.05), transparent 50%);
+        }
+
+        .waitlist-card h2 {
+            color: var(--color-neon-green);
+        }
+        
+        .waitlist-form input[type="email"] {
+            width: 80%;
+            padding: 15px;
+            margin: 25px 0 20px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--color-text-light);
+            font-size: 1rem;
+        }
+
+        .waitlist-form input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* SOCIAL PROOF */
+        #social-proof {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        #social-proof h2 {
+            font-size: clamp(1.5rem, 5vw, 4rem);
+            color: var(--color-charcoal);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); /* Ghosted text effect */
+            letter-spacing: 5px;
+            transition: color 0.5s;
+        }
+        
+        #social-proof h2.is-visible {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--color-neon-green);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--color-charcoal);
+            border: 1px solid var(--color-charcoal);
+            color: var(--color-text-light);
+            font-size: 1rem;
+            transition: border-color var(--transition-speed);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-neon-green);
+        }
+
+        /* Media Queries for Responsiveness (Mobile-First) */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple mobile nav hiding for minimalism */
+            }
+
+            .container {
+                padding: 50px 0;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .manifesto-line { margin: 40px auto; }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .waitlist-form input[type="email"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">LOWKEY</a>
+            <div class="nav-links">
+                <a href="#about">Philosophy</a>
+                <a href="#products">Artifacts</a>
+                <a href="#waitlist">Access</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
     </header>
 
-    <main>
-      <section class="manifesto stealth-section" id="philosophy">
-        <div class="container">
-          <div class="manifesto__item ghost-fade-in">
-            <h2>Volume is a weakness.</h2>
-          </div>
-          <div class="manifesto__item ghost-fade-in">
-            <h2>Legacy is built in silence.</h2>
-          </div>
-          <div class="manifesto__item ghost-fade-in">
-            <h2>The only signal that matters is the one they can't see.</h2>
-          </div>
+    <section id="hero-section">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="lowkey-glow ghost-fade-in">Lowkey.</h1>
+            <p class="ghost-fade-in" data-delay="0.5">Stay Seen by Staying Unseen.</p>
+            <a href="#waitlist" class="cta-button ghost-fade-in magnetic-target" data-delay="1.0">Request Access Protocol</a>
         </div>
-      </section>
+    </section>
 
-      <section class="product-teaser stealth-section" id="objects">
+    <section id="manifesto" class="stealth-section">
         <div class="container">
-          <div class="section-heading ghost-fade-in">
-            <h3>Objects of Intent</h3>
-            <p>
-              Ideology manifested. Each object is a tool, a statement, and a
-              key, crafted not for display but for purpose.
-            </p>
-          </div>
-          <div class="product-teaser__grid ghost-fade-in">
-            <div class="product-teaser__item">
-              <span>Object 001: The Veil</span>
-            </div>
-            <div class="product-teaser__item">
-              <span>Object 002: The Ghost</span>
-            </div>
-            <div class="product-teaser__item">
-              <span>Object 003: The Key</span>
-            </div>
-          </div>
+            <p class="manifesto-line ghost-fade-in" data-threshold="0.9">WE DO NOT SEEK ATTENTION. WE COMMAND IT.</p>
+            <p class="manifesto-line ghost-fade-in" data-threshold="0.8">LUXURY IS NOT WHAT YOU WEAR. IT IS HOW YOU MOVE.</p>
+            <p class="manifesto-line ghost-fade-in" data-threshold="0.7">THE GREATEST POWER IS EXERCISED IN SILENCE.</p>
+            <p class="manifesto-line ghost-fade-in lowkey-glow" data-threshold="0.6">SUBTLETY IS THE NEW STATUS.</p>
         </div>
-      </section>
+    </section>
 
-      <section class="tools stealth-section" id="tools">
+    <section id="about" class="stealth-section">
         <div class="container">
-          <div class="section-heading ghost-fade-in">
-            <h3>The Toolkit</h3>
-            <p>
-              True assets are not material. They are capabilities. We provide
-              the instruments for operating in a world of noise.
-            </p>
-          </div>
-          <div class="tool-panel ghost-fade-in">
-            <div id="cipher-tool">
-              <h4>The Cipher: Secure Transmission</h4>
-              <textarea id="cipher-input" placeholder="Plaintext..."></textarea>
-              <textarea
-                id="cipher-output"
-                placeholder="Ciphertext..."
-                readonly
-              ></textarea>
-            </div>
-            <div id="signal-tool">
-              <h4>The Signal: Ghost Protocol</h4>
-              <div
-                class="file-input-wrapper"
-                onclick="document.getElementById('signal-file-input').click()"
-              >
-                <span id="file-input-label"
-                  >Click to select an image carrier</span
-                >
-                <input
-                  type="file"
-                  id="signal-file-input"
-                  accept="image/png"
-                  class="hidden"
-                />
-              </div>
-              <canvas id="signal-image-canvas" class="hidden"></canvas>
-              <textarea
-                id="signal-message"
-                placeholder="Hidden message... (max 255 chars)"
-              ></textarea>
-              <div style="display: flex; gap: 1rem; margin-top: 1rem">
-                <button id="signal-encode-btn" class="btn">
-                  Encode & Download
-                </button>
-                <button id="signal-decode-btn" class="btn">
-                  Decode from Image
-                </button>
-              </div>
-              <p
-                id="signal-output"
-                style="
-                  margin-top: 1rem;
-                  font-family: &quot;Courier New&quot;, monospace;
-                "
-              ></p>
-            </div>
-          </div>
+            <h2 class="ghost-fade-in">The Lowkey Philosophy</h2>
+            <p class="ghost-fade-in" data-delay="0.2">Built for Outliers. Designed for Ghosts.</p>
+            <p class="ghost-fade-in" data-delay="0.4" style="margin-top: 20px;">We are a collective for those who have transcended the need for external validation. Lowkey artifacts are tools for an elevated existence, not badges of status. We prioritize freedom, utility, and the quiet knowledge of absolute quality.</p>
+            <a href="#manifesto" class="cta-button magnetic-target">Explore The Ethos</a>
         </div>
-      </section>
+    </section>
 
-      <section class="access-gate stealth-section" id="access">
+    <section id="products" class="stealth-section" style="background-color: var(--color-charcoal);">
         <div class="container">
-          <div id="protocol-section" class="glass-panel ghost-fade-in">
-            <h3>The Protocol</h3>
-            <p>
-              Influence is not requested; it is recognized. Provide your
-              identifier. Consideration is the only promise.
-            </p>
-            <form id="protocol-form" class="waitlist__form">
-              <input
-                type="email"
-                id="protocol-email"
-                name="email"
-                class="form-input"
-                placeholder="Secure Identifier (Email)"
-                required
-              />
-              <button type="submit" class="btn lowkey-glow magnetic-btn">
-                Initiate Protocol
-              </button>
+            <h2 class="ghost-fade-in" style="text-align: center;">Artifacts of the Unseen</h2>
+            <div class="product-grid">
+                <div class="product-item ghost-fade-in">
+                    <div class="product-item-placeholder">FUTURE ARTIFACT 001: THE OBSIDIAN HOODIE</div>
+                    <h3>Stealth-Grade Outerwear</h3>
+                    <p>Engineered for urban anonymity. Zero logos. Pure function.</p>
+                </div>
+
+                <div class="product-item ghost-fade-in" data-delay="0.2">
+                    <div class="product-item-placeholder">FUTURE ARTIFACT 002: THE GHOST WATCH</div>
+                    <h3>Precision Timepiece</h3>
+                    <p>Swiss-movement, matte black finish. Its value speaks only to the wearer.</p>
+                </div>
+                
+                <div class="product-item ghost-fade-in" data-delay="0.4">
+                    <div class="product-item-placeholder">FUTURE ARTIFACT 003: MEMBER CARD - LEVEL ZERO</div>
+                    <h3>Digital Membership Tier</h3>
+                    <p>Tokenized access to the inner circle. Exclusivity is a utility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="waitlist" class="stealth-section">
+        <div class="container">
+            <div class="waitlist-card ghost-fade-in">
+                <h2>The Access Protocol</h2>
+                <p>Initial distribution is strictly capped. Join the waitlist for phase-one access to the Lowkey collective.</p>
+                
+                <form class="waitlist-form" method="POST" action="[YOUR-BACKEND-ENDPOINT-HERE]">
+                    <input type="email" name="email" placeholder="YOUR-ENCRYPTED-EMAIL@DOMAIN.COM" required>
+                    <button type="submit" class="cta-button magnetic-target">Submit Protocol Key</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="social-proof" class="stealth-section">
+        <div class="container">
+            <h2 class="ghost-fade-in" data-delay="0.5">THE CIRCLE IS SMALL.</h2>
+            <p class="ghost-fade-in" data-delay="1.0" style="color: rgba(255, 255, 255, 0.4); margin-top: 10px;">If you know, you know. Discretion is mandatory.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="stealth-section" style="background-color: var(--color-charcoal);">
+        <div class="container">
+            <h2 style="text-align: center;" class="ghost-fade-in">Transmission Required</h2>
+            <form class="contact-form ghost-fade-in" method="POST" action="[YOUR-BACKEND-ENDPOINT-HERE]" data-delay="0.2">
+                <div class="form-group">
+                    <label for="name">Alias / Codename</label>
+                    <input type="text" id="name" name="name" required placeholder="JANE DOE / GHOST-7">
+                </div>
+                <div class="form-group">
+                    <label for="email">Secure Channel</label>
+                    <input type="email" id="email" name="email" required placeholder="SECURE.EMAIL@DOMAIN.COM">
+                </div>
+                <div class="form-group">
+                    <label for="message">Transmission</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="YOUR MESSAGE. KEEP IT CONCISE."></textarea>
+                </div>
+                <button type="submit" class="cta-button magnetic-target" style="width: 100%;">Send Encrypted Signal</button>
             </form>
-          </div>
-
-          <div id="letter-section" class="hidden ghost-fade-in">
-            <div class="envelope">
-              <div class="envelope-flap"></div>
-            </div>
-            <p class="letter-prompt">[ Click to Unseal ]</p>
-          </div>
-
-          <div id="unlocked-content" class="hidden">
-            <div id="oracle-section" class="glass-panel">
-              <h3>The Oracle</h3>
-              <p>The channel is open. Ask a question. Receive a reflection.</p>
-              <form id="oracle-form" class="waitlist__form">
-                <input
-                  type="text"
-                  id="oracle-question"
-                  name="question"
-                  class="form-input"
-                  placeholder="Pose your query..."
-                  required
-                />
-                <button
-                  type="submit"
-                  id="oracle-submit"
-                  class="btn lowkey-glow magnetic-btn"
-                >
-                  Consult
-                </button>
-              </form>
-              <div id="oracle-loader" class="loader hidden"></div>
-              <div id="oracle-response">Awaiting query...</div>
-            </div>
-            <a
-              href="YOUR_TELEGRAM_CHANNEL_LINK_HERE"
-              target="_blank"
-              id="telegram-link"
-              class="btn lowkey-glow"
-              >Open Secure Comms Channel</a
-            >
-          </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="footer">
-      <div class="container footer__content">
-        <p class="footer__copyright">
-          &copy; 2025 Lowkey. All rights reserved. Operate in silence.
-        </p>
-        <div class="footer__socials">
-          <a href="#">[Redacted]</a><a href="#">[Redacted]</a>
+    <footer>
+        <div class="social-links">
+            <a href="[INSTAGRAM-LINK]" aria-label="Instagram">INSTAGRAM</a> | 
+            <a href="[TELEGRAM-LINK]" aria-label="Telegram">TELEGRAM</a>
         </div>
-      </div>
+        <p style="margin-top: 10px;">&copy; <span id="current-year"></span> Lowkey. Subtlety is the New Status. | All Rights Reserved.</p>
     </footer>
-  </body>
+
+    <script>
+        (function() {
+            // --- General Utilities ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- 1. Scroll Fade-In Animation (Intersection Observer) ---
+            const faders = document.querySelectorAll('.ghost-fade-in, .manifesto-line');
+
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -100px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+                    // Apply delay defined in data-delay attribute
+                    const delay = entry.target.dataset.delay ? parseFloat(entry.target.dataset.delay) * 1000 : 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, delay);
+                    appearOnScroll.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // --- 2. Interactive Particle Canvas ---
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouse = { x: null, y: null, radius: 150 };
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            window.addEventListener('mousemove', (event) => {
+                mouse.x = event.x;
+                mouse.y = event.y;
+            });
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initParticles(); // Re-initialize on resize
+            });
+
+            class Particle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.baseX = this.x;
+                    this.baseY = this.y;
+                    this.density = (Math.random() * 30) + 1;
+                    this.color = 'rgba(0, 255, 153, ' + (Math.random() * 0.5 + 0.2) + ')'; // Neon green with varying alpha
+                }
+
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                update() {
+                    // Check mouse proximity
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = mouse.radius;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX;
+                        this.y -= directionY;
+                    } else {
+                        // Return to base position
+                        if (this.x !== this.baseX) {
+                            let dx = this.x - this.baseX;
+                            this.x -= dx / 10;
+                        }
+                        if (this.y !== this.baseY) {
+                            let dy = this.y - this.baseY;
+                            this.y -= dy / 10;
+                        }
+                    }
+                    this.draw();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                let numberOfParticles = (canvas.width * canvas.height) / 9000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let x = Math.random() * canvas.width;
+                    let y = Math.random() * canvas.height;
+                    particles.push(new Particle(x, y));
+                }
+            }
+
+            function animateCanvas() {
+                requestAnimationFrame(animateCanvas);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+            }
+
+            initParticles();
+            animateCanvas();
+
+
+            // --- 3. Magnetic Button Effect ---
+            const magneticTargets = document.querySelectorAll('.magnetic-target');
+
+            magneticTargets.forEach(target => {
+                target.addEventListener('mousemove', (e) => {
+                    const rect = target.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element
+                    const y = e.clientY - rect.top;  // y position within the element
+
+                    // Calculate translation based on mouse position from center
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const moveX = (x - centerX) * 0.2; // Adjust multiplier for strength
+                    const moveY = (y - centerY) * 0.2;
+
+                    target.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+
+                target.addEventListener('mouseleave', () => {
+                    // Smoothly reset the position
+                    target.style.transform = `translate(0, 0)`;
+                });
+            });
+
+        })();
+    </script>
+</body>
 </html>
