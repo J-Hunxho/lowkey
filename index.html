@@ -18,7 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        /* ========== your existing CSS (kept) ========== */
+        /* ========================================================================= */
+        /* == 1. VARIABLES & RESET == */
+        /* ========================================================================= */
         :root {
             --color-black-deep: #0e0e0e;
             --color-charcoal: #1c1c1c;
@@ -38,24 +40,32 @@
             color: var(--color-text-light);
             line-height: 1.6;
             overflow-x: hidden;
+            /* Subtle background noise/texture */
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpiYGBgYGJgoOCXjYGNjIAAAAB2AE/gE879AAAAAElFTkSuQmCC');
         }
 
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 80px 0; }
+        .stealth-section { padding:100px 0; position:relative; overflow:hidden; z-index:1; }
+        .lowkey-glow { color: var(--color-neon-green); text-shadow: 0 0 5px var(--color-neon-green), 0 0 10px rgba(0,255,153,0.5); }
+        .cta-buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:20px; }
 
+
+        /* ========================================================================= */
+        /* == 2. NAVIGATION & HEADER == */
+        /* ========================================================================= */
         header {
             position: fixed; width:100%; z-index:1000; padding:15px 0; background:var(--color-black-deep); border-bottom:1px solid var(--color-charcoal);
         }
         nav { display:flex; justify-content:space-between; align-items:center; width:90%; max-width:1200px; margin:0 auto; }
         .logo { font-family:var(--font-header); font-size:1.5rem; font-weight:700; color:var(--color-text-light); text-decoration:none; letter-spacing:3px; display:flex; align-items:center; gap:12px; }
         .logo img { height:28px; display:block; }
-
         .nav-links a { color:var(--color-text-light); text-decoration:none; margin-left:25px; text-transform:uppercase; font-size:0.9rem; opacity:0.7; transition: opacity var(--transition-speed), color var(--transition-speed); }
         .nav-links a:hover { opacity:1; color:var(--color-neon-green); }
 
-        .lowkey-glow { color: var(--color-neon-green); text-shadow: 0 0 5px var(--color-neon-green), 0 0 10px rgba(0,255,153,0.5); }
 
-        /* hero, canvas, fader classes - kept from your original file */
+        /* ========================================================================= */
+        /* == 3. HERO & BUTTONS == */
+        /* ========================================================================= */
         #hero-section { height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; color:white; }
         #particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; opacity:0.2; }
 
@@ -63,54 +73,27 @@
         .hero-content h1 { font-size: clamp(2.5rem, 8vw, 6rem); margin-bottom: 10px; }
         .hero-content p { font-size: clamp(1rem, 2.5vw, 1.5rem); opacity:0.8; letter-spacing:3px; }
 
-        .ghost-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
-        .ghost-fade-in.is-visible { opacity:1; transform:translateY(0); }
+        .cta-button {
+            display:inline-block; padding:12px 30px; margin-top:20px; background:var(--color-charcoal); border:1px solid var(--color-neon-green); color:var(--color-neon-green); text-decoration:none; text-transform:uppercase; font-weight:700; letter-spacing:1px; transition: transform 0.2s ease-out, box-shadow var(--transition-speed), background var(--transition-speed), color var(--transition-speed); cursor:pointer; position:relative; overflow:hidden; z-index:2;
+        }
+        .cta-button:hover { background:var(--color-neon-green); color:var(--color-black-deep); box-shadow:0 0 15px rgba(0,255,153,0.6); transform:scale(1.05); }
 
-        .stealth-section { padding:100px 0; position:relative; overflow:hidden; z-index:1; }
 
-        /* motto section styling */
+        /* ========================================================================= */
+        /* == 4. MOTTO & MANIFESTO == */
+        /* ========================================================================= */
         #motto { text-align:center; padding:60px 0; }
         #motto h2 { font-family:var(--font-header); font-size:3rem; letter-spacing:3px; margin-bottom:10px; }
         #motto p { font-size:1.15rem; opacity:0.85; margin-top:6px; }
 
-        /* founder key CTA */
-        .cta-button {
-            display:inline-block; padding:12px 30px; margin-top:20px; background:var(--color-charcoal); border:1px solid var(--color-neon-green); color:var(--color-neon-green); text-decoration:none; text-transform:uppercase; font-weight:700; letter-spacing:1px; transition: transform 0.2s ease-out, box-shadow var(--transition-speed); cursor:pointer; position:relative; overflow:hidden; z-index:2;
-        }
-        .cta-button:hover { background:var(--color-neon-green); color:var(--color-black-deep); box-shadow:0 0 15px rgba(0,255,153,0.6); transform:scale(1.05); }
-
-        .cta-buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:20px; }
-
-        /* merch gallery */
-        .merch-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
-        .merch-card { width:320px; max-width:100%; background:var(--color-charcoal); padding:18px; border-radius:8px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 24px rgba(0,0,0,0.4); }
-        .merch-card img { width:100%; height:auto; object-fit:cover; border-radius:6px; display:block; margin-bottom:12px; }
-
-        /* products & other styles retained from original */
-        .product-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:50px; }
-        .product-item { background:var(--color-charcoal); border:1px solid rgba(255,255,255,0.05); padding:20px; text-align:center; transition:box-shadow var(--transition-speed), transform var(--transition-speed); }
-        .product-item:hover { box-shadow:0 0 20px rgba(0,255,153,0.3); transform:translateY(-5px); }
-
-        footer { background:var(--color-charcoal); border-top:1px solid var(--color-charcoal); color:rgba(255,255,255,0.5); padding:30px 0; text-align:center; font-size:0.8rem; letter-spacing:1px; position:relative; z-index:5; }
-
-        @media (max-width:768px) {
-            .nav-links { display:none; }
-            .container { padding:50px 0; }
-            h1{ font-size:2.5rem; }
-            h2{ font-size:1.8rem; }
-            .merch-gallery { gap:18px; }
-        }
-
-        /* MANIFESTO SECTION (Parallax Effect) */
         #manifesto {
             background-color: var(--color-charcoal);
-            color: var(--color-text-light);
-            text-align: center;
             background-image: linear-gradient(rgba(14, 14, 14, 0.8), rgba(14, 14, 14, 0.8)), url('https://via.placeholder.com/1920x1080?text=Abstract+Background');
             background-attachment: fixed; /* Parallax effect */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            text-align: center;
         }
 
         .manifesto-line {
@@ -123,172 +106,72 @@
             color: rgba(255, 255, 255, 0.1); /* Subtle initial state */
             transition: color 1s ease-out;
         }
-
         .manifesto-line.is-visible {
             color: var(--color-text-light);
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
         }
 
-        /* ABOUT Section */
-        #about {
-            text-align: center;
-        }
+        /* ========================================================================= */
+        /* == 5. MERCH & PRODUCTS == */
+        /* ========================================================================= */
+        .merch-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
+        .merch-card { width:320px; max-width:100%; background:var(--color-charcoal); padding:18px; border-radius:8px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+        .merch-card img { width:100%; height:auto; object-fit:cover; border-radius:6px; display:block; margin-bottom:12px; }
 
-        #about h2 {
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--color-charcoal);
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-
-        /* PRODUCT TEASER (Grid) */
-        /* Re-using .product-grid from above, but for completeness: */
-        /* .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .product-item {
-            background: var(--color-charcoal);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            text-align: center;
-            transition: box-shadow var(--transition-speed), transform var(--transition-speed);
-        }
-        
-        .product-item:hover {
-            box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
-            transform: translateY(-5px);
-        } */
+        .product-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:50px; }
+        .product-item { background:var(--color-charcoal); border:1px solid rgba(255,255,255,0.05); padding:20px; text-align:center; transition:box-shadow var(--transition-speed), transform var(--transition-speed); }
+        .product-item:hover { box-shadow:0 0 20px rgba(0,255,153,0.3); transform:translateY(-5px); }
 
         .product-item-placeholder {
-            width: 100%;
-            height: 200px;
-            background: var(--color-black-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.3);
-            border: 1px dashed rgba(255, 255, 255, 0.1);
+            width: 100%; height: 200px; background: var(--color-black-deep); display: flex; align-items: center; justify-content: center; margin-bottom: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3); border: 1px dashed rgba(255, 255, 255, 0.1);
         }
 
-        /* MEMBERSHIP WAITLIST (Glassmorphism) */
-        #waitlist {
-            padding: 100px 0;
-            background: var(--color-black-deep);
-        }
-
+        /* ========================================================================= */
+        /* == 6. WAITLIST & CONTACT FORMS == */
+        /* ========================================================================= */
         .waitlist-card {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            background: var(--color-glass-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            text-align: center;
-            position: relative;
-            /* Subtle Aurora Background for Glassmorphism */
-            background-image: radial-gradient(circle at top left, rgba(0, 255, 153, 0.1), transparent 50%),
-                             radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.05), transparent 50%);
+            max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 10px; backdrop-filter: blur(10px); background: var(--color-glass-bg); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); text-align: center; position: relative;
+            background-image: radial-gradient(circle at top left, rgba(0, 255, 153, 0.1), transparent 50%), radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.05), transparent 50%);
         }
-
-        .waitlist-card h2 {
-            color: var(--color-neon-green);
-        }
-        
+        .waitlist-card h2 { color: var(--color-neon-green); }
         .waitlist-form input[type="email"] {
-            width: 80%;
-            padding: 15px;
-            margin: 25px 0 20px 0;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--color-text-light);
-            font-size: 1rem;
+            width: 80%; padding: 15px; margin: 25px 0 20px 0; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--color-text-light); font-size: 1rem;
         }
+        .waitlist-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
 
-        .waitlist-form input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* SOCIAL PROOF */
-        #social-proof {
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        #social-proof h2 {
-            font-size: clamp(1.5rem, 5vw, 4rem);
-            color: var(--color-charcoal);
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); /* Ghosted text effect */
-            letter-spacing: 5px;
-            transition: color 0.5s;
-        }
-        
-        #social-proof h2.is-visible {
-            color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* CONTACT FORM */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            color: var(--color-neon-green);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; }
+        .contact-form label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--color-neon-green); text-transform: uppercase; font-size: 0.8rem; }
         .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--color-charcoal);
-            border: 1px solid var(--color-charcoal);
-            color: var(--color-text-light);
-            font-size: 1rem;
-            transition: border-color var(--transition-speed);
+            width: 100%; padding: 12px; background: var(--color-charcoal); border: 1px solid var(--color-charcoal); color: var(--color-text-light); font-size: 1rem; transition: border-color var(--transition-speed);
         }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--color-neon-green); }
 
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--color-neon-green);
+
+        /* ========================================================================= */
+        /* == 7. FOOTER & SOCIAL PROOF == */
+        /* ========================================================================= */
+        #social-proof { text-align: center; padding: 80px 0; }
+        #social-proof h2 {
+            font-size: clamp(1.5rem, 5vw, 4rem); color: var(--color-charcoal); -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); letter-spacing: 5px; transition: color 0.5s;
         }
+        footer { background:var(--color-charcoal); border-top:1px solid var(--color-charcoal); color:rgba(255,255,255,0.5); padding:30px 0; text-align:center; font-size:0.8rem; letter-spacing:1px; position:relative; z-index:5; }
 
-        /* Media Queries for Responsiveness (Mobile-First) */
+
+        /* ========================================================================= */
+        /* == 8. ANIMATIONS & MEDIA QUERIES == */
+        /* ========================================================================= */
+        .ghost-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
+        .ghost-fade-in.is-visible { opacity:1; transform:translateY(0); }
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Simple mobile nav hiding for minimalism */
-            }
-
-            .container {
-                padding: 50px 0;
-            }
-
+            .nav-links { display: none; } /* Simple mobile nav hiding for minimalism */
+            .container { padding: 50px 0; }
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
             .manifesto-line { margin: 40px auto; }
-            
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .waitlist-form input[type="email"] {
-                width: 100%;
-            }
+            .product-grid { grid-template-columns: 1fr; }
+            .waitlist-form input[type="email"] { width: 100%; }
         }
     </style>
 </head>
@@ -296,14 +179,14 @@
 
     <header>
         <nav>
-            <a href="#" class="logo" aria-label="Lowkey Luxury">
+            <a href="#" class="logo" aria-label="Lowkey Luxury - Home">
                 <img src="images/lowkeyluxmainlogo.png" alt="Lowkey Luxury logo" />
                 <span style="font-size:0.9rem; color:rgba(255,255,255,0.85); letter-spacing:2px">LOWKEY LUXURY</span>
             </a>
 
             <div class="nav-links">
                 <a href="#about">Philosophy</a>
-                <a href="#products">Artifacts</a>
+                <a href="#merch">Artifacts</a>
                 <a href="#waitlist">Access</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -311,34 +194,3 @@
     </header>
 
     <main>
-        <section id="hero-section">
-            <canvas id="particle-canvas"></canvas>
-            <div class="hero-content">
-                <h1 class="lowkey-glow ghost-fade-in">LOWKEY LUXURY</h1>
-                <p class="ghost-fade-in" data-delay="0.5">Stay Seen by Staying Unseen.</p>
-                <a href="#waitlist" class="cta-button ghost-fade-in magnetic-target" data-delay="1.0">Request Access Protocol</a>
-            </div>
-        </section>
-
-        <section id="motto" class="stealth-section">
-            <div class="container">
-                <h2 class="lowkey-glow">SLEEP RICH</h2>
-                <p class="ghost-fade-in is-visible">Where silence builds empires.</p>
-                <div style="margin-top:22px;">
-                    <picture>
-                        <source srcset="images/motto-sleeprich.webp" type="image/webp">
-                        <img src="images/motto-sleeprich.webp" alt="Sleep Rich - Lowkey Luxury" style="max-width:720px; width:100%; height:auto; display:inline-block; border-radius:8px; border:1px solid rgba(255,255,255,0.04);" loading="eager">
-                    </picture>
-                </div>
-            </div>
-        </section>
-
-        <section id="founder-key" class="stealth-section">
-            <div class="container" style="text-align:center;">
-                <h2 class="lowkey-glow">Become a Founder</h2>
-                <p style="opacity:0.8;">Unlock lifetime access to private drops, unreleased designs, and the Lowkey inner circle.</p>
-
-                <div class="cta-buttons" style="margin-top:28px;">
-                    <a href="https://buy.stripe.com/00wdRbgiT9dk46vfVh8ww01" target="_blank" rel="noopener" class="cta-button">Unlock the Founder Key</a>
-
-                    <a href="
