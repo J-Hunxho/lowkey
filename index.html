@@ -1,292 +1,986 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lowkey Luxury — Subtlety is the New Status.</title>
-    <meta name="description" content="Lowkey Luxury is the stealth-wealth collective built for outliers. Designed for those who choose to stay unseen.">
-    <meta property="og:title" content="Lowkey Luxury. Subtlety is the New Status.">
-    <meta property="og:description" content="The exclusive collective built for those who lead in silence.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-domain-or-pages-site.com/">
-    <meta property="og:image" content="https://your-domain-or-pages-site.com/images/motto-sleeprich.webp">
-    <meta name="twitter:card" content="summary_large_image">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Lowkey Housing Assist — scam-proof housing navigation and application help. Clear steps. Real humans. Stripe-secured checkout." />
+  <title>Lowkey Housing Assist — Find Housing Without the Chaos</title>
 
-    <!-- favicon -->
-    <link rel="icon" href="images/lowkeyluxmainlogo.png" type="image/png">
+  <style>
+    :root{
+      --bg:#07080c;
+      --card:#0c0f18;
+      --card2:#0b1220;
+      --text:#e9ecf2;
+      --muted:#aab2c5;
+      --line:rgba(255,255,255,.08);
+      --gold:#d6b56a;
+      --gold2:#f4e2b7;
+      --green:#72f3b6;
+      --red:#ff6b6b;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 15% 15%, rgba(214,181,106,.20), transparent 50%),
+        radial-gradient(900px 700px at 85% 20%, rgba(114,243,182,.12), transparent 55%),
+        radial-gradient(1000px 800px at 55% 95%, rgba(80,120,255,.10), transparent 60%),
+        linear-gradient(180deg, #05060a 0%, #07080c 45%, #060710 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:1160px;margin:0 auto;padding:24px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      position:sticky;top:0;z-index:50;
+      padding:14px 24px;
+      backdrop-filter: blur(14px);
+      background: rgba(7,8,12,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      min-width:240px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background: radial-gradient(circle at 35% 25%, rgba(244,226,183,.95), rgba(214,181,106,.55) 45%, rgba(7,8,12,.0) 70%),
+                  linear-gradient(135deg, rgba(214,181,106,.35), rgba(114,243,182,.18));
+      border:1px solid rgba(214,181,106,.25);
+      box-shadow: 0 10px 40px rgba(214,181,106,.12);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute;inset:-40%;
+      background: conic-gradient(from 180deg, rgba(214,181,106,0), rgba(244,226,183,.35), rgba(114,243,182,.18), rgba(214,181,106,0));
+      animation: spin 6.8s linear infinite;
+      opacity:.85;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .brand h1{
+      font-size:14px;margin:0;letter-spacing:.12em;text-transform:uppercase;
+      color:rgba(244,226,183,.95);
+    }
+    .brand p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+    .nav{
+      display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;font-size:13px;color:rgba(233,236,242,.86);
+      padding:8px 10px;border-radius:12px;border:1px solid transparent;
+    }
+    .nav a:hover{border-color:rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(214,181,106,.30);
+      background: linear-gradient(135deg, rgba(214,181,106,.18), rgba(114,243,182,.06));
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      color:rgba(244,226,183,.95);
+      text-decoration:none;font-weight:600;font-size:13px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px);border-color:rgba(244,226,183,.50);background:linear-gradient(135deg, rgba(214,181,106,.25), rgba(114,243,182,.08))}
+    .btn.secondary{
+      color:rgba(233,236,242,.92);
+      border-color:rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      box-shadow:none;
+    }
+    .hero{
+      padding:54px 24px 10px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    .headline{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: var(--radius2);
+      padding:28px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .headline:before{
+      content:"";
+      position:absolute;inset:-2px;
+      background:
+        radial-gradient(700px 240px at 20% 10%, rgba(214,181,106,.24), transparent 60%),
+        radial-gradient(520px 240px at 90% 10%, rgba(114,243,182,.16), transparent 60%),
+        radial-gradient(700px 300px at 50% 110%, rgba(80,120,255,.12), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .headline > *{position:relative}
+    .kicker{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+      font-size:12px;color:rgba(233,236,242,.82);
+      letter-spacing:.08em;text-transform:uppercase;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.15);
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px rgba(114,243,182,.35)}
+    .dot.gold{background:var(--gold);box-shadow:0 0 18px rgba(214,181,106,.35)}
+    h2{
+      margin:14px 0 10px;
+      font-size:40px;line-height:1.1;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0 0 18px;
+      font-size:15px;line-height:1.65;
+      color:rgba(233,236,242,.84);
+      max-width:62ch;
+    }
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .micro{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;
+    }
+    @media (max-width: 700px){
+      h2{font-size:34px}
+      .micro{grid-template-columns:1fr}
+      .topbar{padding:12px 14px}
+    }
+    .micro .mini{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      border-radius: var(--radius);
+      padding:14px;
+    }
+    .mini b{display:block;font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:rgba(244,226,183,.92)}
+    .mini span{display:block;margin-top:6px;color:rgba(233,236,242,.78);font-size:13px;line-height:1.5}
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(0,0,0,.22));
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:14px;letter-spacing:.10em;text-transform:uppercase;color:rgba(244,226,183,.95)
+    }
+    .trustStack{
+      display:grid;gap:12px;
+    }
+    .trustItem{
+      display:flex;gap:12px;align-items:flex-start;
+      padding:14px;border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+    }
+    .icon{
+      width:40px;height:40px;border-radius:14px;
+      border:1px solid rgba(214,181,106,.25);
+      background: radial-gradient(circle at 30% 25%, rgba(244,226,183,.55), rgba(214,181,106,.10) 60%, rgba(0,0,0,.10));
+      display:grid;place-items:center;
+      flex:0 0 auto;
+    }
+    .trustItem b{display:block;font-size:13px;margin:1px 0 4px}
+    .trustItem p{margin:0;color:rgba(233,236,242,.80);font-size:13px;line-height:1.55}
+    .divider{height:1px;background:var(--line);margin:14px 0}
+    .badgeRow{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color:rgba(233,236,242,.84);
+    }
 
-    <!-- preload hero/motto images for faster paint -->
-    <link rel="preload" as="image" href="images/motto-sleeprich.webp">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    /* “Generated image” hero art (inline SVG) */
+    .art{
+      width:100%;
+      height:210px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background: radial-gradient(600px 220px at 25% 25%, rgba(214,181,106,.18), transparent 60%),
+                  radial-gradient(520px 240px at 85% 35%, rgba(114,243,182,.14), transparent 60%),
+                  rgba(0,0,0,.18);
+      overflow:hidden;
+      position:relative;
+    }
+    .art svg{position:absolute;inset:0;width:100%;height:100%}
+    .art .caption{
+      position:absolute;left:14px;bottom:12px;right:14px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .capLeft{display:flex;gap:10px;align-items:center}
+    .shield{
+      width:34px;height:34px;border-radius:14px;
+      border:1px solid rgba(114,243,182,.25);
+      background: rgba(114,243,182,.10);
+      display:grid;place-items:center;
+    }
+    .capLeft div{font-size:12px;color:rgba(233,236,242,.86);line-height:1.35}
+    .capLeft strong{display:block;color:rgba(244,226,183,.92);letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+    .capRight{
+      font-family:var(--mono);
+      font-size:11px;color:rgba(233,236,242,.75);
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
 
-    <style>
-        /* ========== your existing CSS (kept) ========== */
-        :root {
-            --color-black-deep: #0e0e0e;
-            --color-charcoal: #1c1c1c;
-            --color-gold-muted: #ffd700;
-            --color-neon-green: #00ff99;
-            --color-text-light: #e0e0e0;
-            --color-glass-bg: rgba(28, 28, 28, 0.7);
-            --font-header: 'Roboto Condensed', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
-            --transition-speed: 0.3s;
-        }
+    section{padding:18px 24px}
+    .sectionTitle{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      margin:22px 0 10px;
+    }
+    .sectionTitle h4{
+      margin:0;font-size:16px;letter-spacing:.10em;text-transform:uppercase;color:rgba(244,226,183,.95);
+    }
+    .sectionTitle p{
+      margin:0;color:rgba(233,236,242,.70);font-size:13px;max-width:70ch;
+    }
 
-        * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-black-deep);
-            color: var(--color-text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpiYGBgYGJgoOCXjYGNjIAAAAB2AE/gE879AAAAAElFTkSuQmCC');
-        }
+    .steps{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+    }
+    @media (max-width: 980px){.steps{grid-template-columns:1fr 1fr}}
+    @media (max-width: 560px){.steps{grid-template-columns:1fr}}
+    .step{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.16);
+      border-radius: var(--radius2);
+      padding:16px;
+      min-height:150px;
+      position:relative;
+      overflow:hidden;
+    }
+    .step:before{
+      content:"";
+      position:absolute;inset:-2px;
+      background: radial-gradient(340px 180px at 20% 10%, rgba(214,181,106,.16), transparent 60%),
+                  radial-gradient(320px 160px at 85% 20%, rgba(114,243,182,.10), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .step > *{position:relative}
+    .n{
+      font-family:var(--mono);
+      font-size:11px;
+      color:rgba(233,236,242,.72);
+      letter-spacing:.14em;text-transform:uppercase;
+    }
+    .step b{display:block;margin:8px 0 6px;font-size:14px}
+    .step p{margin:0;color:rgba(233,236,242,.74);font-size:13px;line-height:1.55}
 
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 80px 0; }
+    .pricing{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    }
+    @media (max-width: 980px){.pricing{grid-template-columns:1fr}}
+    .priceCard{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      border-radius: var(--radius2);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .priceCard.featured{
+      border-color:rgba(244,226,183,.25);
+      box-shadow: 0 22px 80px rgba(214,181,106,.10);
+      background: linear-gradient(180deg, rgba(214,181,106,.08), rgba(0,0,0,.22));
+    }
+    .priceCard .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(233,236,242,.80);
+    }
+    .priceCard h5{margin:10px 0 6px;font-size:16px}
+    .money{
+      display:flex;align-items:baseline;gap:10px;margin:8px 0 10px
+    }
+    .money .amt{font-size:34px;font-weight:800;letter-spacing:-.02em;color:rgba(244,226,183,.96)}
+    .money .per{font-size:12px;color:rgba(233,236,242,.70);letter-spacing:.12em;text-transform:uppercase}
+    .ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .ul li{
+      display:flex;gap:10px;align-items:flex-start;color:rgba(233,236,242,.78);font-size:13px;line-height:1.55
+    }
+    .check{
+      width:18px;height:18px;border-radius:7px;
+      border:1px solid rgba(114,243,182,.25);
+      background: rgba(114,243,182,.10);
+      display:grid;place-items:center;flex:0 0 auto;margin-top:2px;
+    }
+    .fine{
+      margin-top:12px;color:rgba(233,236,242,.62);font-size:12px;line-height:1.55
+    }
 
-        header {
-            position: fixed; width:100%; z-index:1000; padding:15px 0; background:var(--color-black-deep); border-bottom:1px solid var(--color-charcoal);
-        }
-        nav { display:flex; justify-content:space-between; align-items:center; width:90%; max-width:1200px; margin:0 auto; }
-        .logo { font-family:var(--font-header); font-size:1.5rem; font-weight:700; color:var(--color-text-light); text-decoration:none; letter-spacing:3px; display:flex; align-items:center; gap:12px; }
-        .logo img { height:28px; display:block; }
+    .testimonials{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    }
+    @media (max-width: 980px){.testimonials{grid-template-columns:1fr}}
+    .quote{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.16);
+      border-radius: var(--radius2);
+      padding:16px;
+      position:relative;
+    }
+    .quote:before{
+      content:"“";
+      position:absolute;top:-10px;left:14px;
+      font-size:70px;line-height:1;color:rgba(244,226,183,.14);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+    .quote p{margin:10px 0 12px;color:rgba(233,236,242,.78);line-height:1.65;font-size:13px}
+    .who{display:flex;align-items:center;gap:10px}
+    .avatar{
+      width:34px;height:34px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.22), rgba(0,0,0,.18));
+    }
+    .who b{display:block;font-size:12px;color:rgba(233,236,242,.92)}
+    .who span{display:block;font-size:11px;color:rgba(233,236,242,.62);font-family:var(--mono)}
+    .faq{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;
+    }
+    @media (max-width: 980px){.faq{grid-template-columns:1fr}}
+    details{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      border-radius: var(--radius2);
+      padding:14px 14px 10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      color:rgba(244,226,183,.95);
+      letter-spacing:.02em;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin:10px 0 0;
+      color:rgba(233,236,242,.74);
+      line-height:1.6;
+      font-size:13px;
+    }
 
-        .nav-links a { color:var(--color-text-light); text-decoration:none; margin-left:25px; text-transform:uppercase; font-size:0.9rem; opacity:0.7; transition: opacity var(--transition-speed), color var(--transition-speed); }
-        .nav-links a:hover { opacity:1; color:var(--color-neon-green); }
-
-        .lowkey-glow { color: var(--color-neon-green); text-shadow: 0 0 5px var(--color-neon-green), 0 0 10px rgba(0,255,153,0.5); }
-
-        /* hero, canvas, fader classes - kept from your original file */
-        #hero-section { height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; color:white; }
-        #particle-canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; opacity:0.2; }
-
-        .hero-content { position:relative; z-index:10; padding:20px; text-shadow:0 0 10px rgba(0,0,0,0.8); }
-        .hero-content h1 { font-size: clamp(2.5rem, 8vw, 6rem); margin-bottom: 10px; }
-        .hero-content p { font-size: clamp(1rem, 2.5vw, 1.5rem); opacity:0.8; letter-spacing:3px; }
-
-        .ghost-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
-        .ghost-fade-in.is-visible { opacity:1; transform:translateY(0); }
-
-        .stealth-section { padding:100px 0; position:relative; overflow:hidden; z-index:1; }
-
-        /* motto section styling */
-        #motto { text-align:center; padding:60px 0; }
-        #motto h2 { font-family:var(--font-header); font-size:3rem; letter-spacing:3px; margin-bottom:10px; }
-        #motto p { font-size:1.15rem; opacity:0.85; margin-top:6px; }
-
-        /* founder key CTA */
-        .cta-button {
-            display:inline-block; padding:12px 30px; margin-top:20px; background:var(--color-charcoal); border:1px solid var(--color-neon-green); color:var(--color-neon-green); text-decoration:none; text-transform:uppercase; font-weight:700; letter-spacing:1px; transition: transform 0.2s ease-out, box-shadow var(--transition-speed); cursor:pointer; position:relative; overflow:hidden; z-index:2;
-        }
-        .cta-button:hover { background:var(--color-neon-green); color:var(--color-black-deep); box-shadow:0 0 15px rgba(0,255,153,0.6); transform:scale(1.05); }
-
-        .cta-buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:20px; }
-
-        /* merch gallery */
-        .merch-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
-        .merch-card { width:320px; max-width:100%; background:var(--color-charcoal); padding:18px; border-radius:8px; text-align:center; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 24px rgba(0,0,0,0.4); }
-        .merch-card img { width:100%; height:auto; object-fit:cover; border-radius:6px; display:block; margin-bottom:12px; }
-
-        /* products & other styles retained from original */
-        .product-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px; margin-top:50px; }
-        .product-item { background:var(--color-charcoal); border:1px solid rgba(255,255,255,0.05); padding:20px; text-align:center; transition:box-shadow var(--transition-speed), transform var(--transition-speed); }
-        .product-item:hover { box-shadow:0 0 20px rgba(0,255,153,0.3); transform:translateY(-5px); }
-
-        footer { background:var(--color-charcoal); border-top:1px solid var(--color-charcoal); color:rgba(255,255,255,0.5); padding:30px 0; text-align:center; font-size:0.8rem; letter-spacing:1px; position:relative; z-index:5; }
-
-        @media (max-width:768px) {
-            .nav-links { display:none; }
-            .container { padding:50px 0; }
-            h1{ font-size:2.5rem; }
-            h2{ font-size:1.8rem; }
-            .merch-gallery { gap:18px; }
-        }
-    </style>
+    .footer{
+      margin-top:18px;
+      padding:24px;
+      border-top:1px solid var(--line);
+      color:rgba(233,236,242,.62);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .footer .cols{
+      display:grid;grid-template-columns:1fr 1fr;gap:14px;
+    }
+    @media (max-width: 980px){.footer .cols{grid-template-columns:1fr}}
+    .muted{color:rgba(233,236,242,.62)}
+    .inputRow{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    }
+    @media (max-width: 700px){.inputRow{grid-template-columns:1fr}}
+    .form{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.16);
+      border-radius: var(--radius2);
+      padding:16px;
+    }
+    label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(233,236,242,.68);margin:10px 0 6px}
+    input,select,textarea{
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color:rgba(233,236,242,.92);
+      padding:12px 12px;
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .smallNote{font-size:12px;color:rgba(233,236,242,.62);margin:10px 0 0;line-height:1.6}
+    .success{
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(114,243,182,.25);
+      background: rgba(114,243,182,.10);
+      color:rgba(233,236,242,.88);
+      font-size:13px;
+    }
+    .warn{
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,107,107,.25);
+      background: rgba(255,107,107,.08);
+      color:rgba(233,236,242,.88);
+      font-size:13px;
+    }
+    .kbd{
+      font-family:var(--mono);
+      padding:2px 6px;border-radius:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      font-size:11px;color:rgba(233,236,242,.72);
+    }
+  </style>
 </head>
+
 <body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Lowkey Housing Assist</h1>
+        <p>Scam-proof guidance • Serious-buyer filtering • Clean process</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#apply" class="btn secondary">Free Pre-Screen</a>
+      <a href="#pay" class="btn">Pay & Submit Application</a>
+    </nav>
+  </header>
 
-    <header>
-        <nav>
-            <!-- Logo with image fallback -->
-            <a href="#" class="logo" aria-label="Lowkey Luxury">
-                <img src="images/lowkeyluxmainlogo.png" alt="Lowkey Luxury logo" />
-                <span style="font-size:0.9rem; color:rgba(255,255,255,0.85); letter-spacing:2px">LOWKEY LUXURY</span>
-            </a>
-
-            <div class="nav-links">
-                <a href="#about">Philosophy</a>
-                <a href="#products">Artifacts</a>
-                <a href="#waitlist">Access</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- HERO -->
-        <section id="hero-section">
-            <canvas id="particle-canvas"></canvas>
-            <div class="hero-content">
-                <h1 class="lowkey-glow ghost-fade-in">hey whats up</h1>
-                <p class="ghost-fade-in" data-delay="0.5">Stay Seen by Staying Unseen.</p>
-                <a href="#waitlist" class="cta-button ghost-fade-in magnetic-target" data-delay="1.0">Request Access Protocol</a>
-            </div>
-        </section>
-
-        <!-- MOTTO -->
-        <section id="motto" class="stealth-section">
-            <div class="container">
-                <h2 class="lowkey-glow">SLEEP RICH</h2>
-                <p class="ghost-fade-in is-visible">Where silence builds empires.</p>
-                <!-- optional motto image -->
-                <div style="margin-top:22px;">
-                    <picture>
-                        <source srcset="images/motto-sleeprich.webp" type="image/webp">
-                        <img src="images/motto-sleeprich.webp" alt="Sleep Rich - Lowkey Luxury" style="max-width:720px; width:100%; height:auto; display:inline-block; border-radius:8px; border:1px solid rgba(255,255,255,0.04);" loading="eager">
-                    </picture>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOUNDER KEY - placed above merch (as requested) -->
-        <section id="founder-key" class="stealth-section">
-            <div class="container" style="text-align:center;">
-                <h2 class="lowkey-glow">Become a Founder</h2>
-                <p style="opacity:0.8;">Unlock lifetime access to private drops, unreleased designs, and the Lowkey inner circle.</p>
-
-                <div class="cta-buttons" style="margin-top:28px;">
-                    <!-- Stripe Payment Link (Founder Key) -->
-                    <a href="https://buy.stripe.com/00wdRbgiT9dk46vfVh8ww01" target="_blank" rel="noopener" class="cta-button">Unlock the Founder Key</a>
-
-                    <!-- Telegram bot -->
-                    <a href="https://t.me/officiallowkeybot" target="_blank" rel="noopener" class="cta-button">Private Drop</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- MERCH / APPAREL GALLERY (above Artifacts) -->
-        <section id="merch" class="stealth-section" style="background-color:transparent;">
-            <div class="container">
-                <h2 style="text-align:center; margin-bottom:8px;" class="ghost-fade-in">Artifacts of the Unseen</h2>
-                <p style="text-align:center; opacity:0.8; margin-top:6px;">Curated essentials for those who lead in silence.</p>
-
-                <div class="merch-gallery" role="list" aria-label="Merch collection">
-                    <div class="merch-card" role="listitem">
-                        <picture>
-                            <source srcset="images/artifact-shirts.webp" type="image/webp">
-                            <img src="images/artifact-shirts.webp" alt="Street inspired T-shirt" loading="lazy">
-                        </picture>
-                        <h3 style="margin-top:10px;">Street-Inspired Tee</h3>
-                        <p style="opacity:0.7; font-size:0.95rem;">Soft cotton, heavy print. Limited run.</p>
-                    </div>
-
-                    <div class="merch-card" role="listitem">
-                        <picture>
-                            <source srcset="images/artifact-hoodie.webp" type="image/webp">
-                            <img src="images/artifact-hoodie.webp" alt="Lowkey hoodie" loading="lazy">
-                        </picture>
-                        <h3 style="margin-top:10px;">Obsidian Hoodie</h3>
-                        <p style="opacity:0.7; font-size:0.95rem;">Matte black, minimalist, stealth-grade.</p>
-                    </div>
-
-                    <div class="merch-card" role="listitem">
-                        <picture>
-                            <source srcset="images/artifact-sleeprich.webp" type="image/webp">
-                            <img src="images/artifact-sleeprich.webp" alt="Sleep Rich graphic tee" loading="lazy">
-                        </picture>
-                        <h3 style="margin-top:10px;">Sleep Rich Graphic</h3>
-                        <p style="opacity:0.7; font-size:0.95rem;">Signature slogan print, premium cut.</p>
-                    </div>
-                </div>
-
-                <!-- Buttons near merch (redundant entry-point; optional) -->
-                <div style="text-align:center; margin-top:36px;">
-                    <a href="https://buy.stripe.com/00wdRbgiT9dk46vfVh8ww01" class="cta-button" target="_blank">Get the Founder Key</a>
-                    <a href="https://t.me/officiallowkeybot" class="cta-button" target="_blank" style="margin-left:14px;">Private Drop</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== existing MANIFESTO, ABOUT, PRODUCTS, WAITLIST, CONTACT, FOOTER sections ========== -->
-        <!-- Keep the rest of your existing content here (manifesto, about, products, waitlist, contact) -->
-        <!-- You already have these sections in your original file; nothing else needs to change. -->
-
-    </main>
-
-    <footer>
-        <div class="social-links">
-            <a href="[INSTAGRAM-LINK]" aria-label="Instagram">INSTAGRAM</a> |
-            <a href="https://t.me/officiallowkeybot" aria-label="Telegram">TELEGRAM</a>
+  <main class="wrap hero">
+    <div class="grid">
+      <div class="headline">
+        <div class="kicker">
+          <span class="pill"><span class="dot"></span> Live screening workflow</span>
+          <span class="pill"><span class="dot gold"></span> Stripe-secured checkout</span>
+          <span class="pill"><span class="dot"></span> Scam avoidance & verification</span>
         </div>
-        <p style="margin-top:10px;">&copy; <span id="current-year"></span> Lowkey Luxury. Subtlety is the New Status. | All Rights Reserved.</p>
-        <p style="margin-top:8px; font-size:0.8rem; opacity:0.6;">Designed for those who move in silence.</p>
+
+        <h2>Find housing without the chaos.</h2>
+        <p class="sub">
+          You don’t need “more listings.” You need a <b>system</b>: a clean plan, a legit process, and a filter that blocks scammers
+          and time-wasters. We help you get organized, get verified, and move with confidence — rent, buy, land, rent-to-own.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn" href="#apply">Start Free Pre-Screen</a>
+          <a class="btn secondary" href="#pricing">See Packages</a>
+          <a class="btn secondary" href="#faq">Read “Is this legit?”</a>
+        </div>
+
+        <div class="micro">
+          <div class="mini">
+            <b>Trust first</b>
+            <span>Clear process, plain language, receipts, and Stripe checkout — no weird cashapp vibes.</span>
+          </div>
+          <div class="mini">
+            <b>Filter noise</b>
+            <span>We only proceed with serious clients. No endless back-and-forth. No chaos.</span>
+          </div>
+          <div class="mini">
+            <b>Action plan</b>
+            <span>You get a step-by-step route based on your budget, timeline, and situation.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="art" aria-label="Generated trust visual">
+          <!-- Inline SVG “generated image” -->
+          <svg viewBox="0 0 1200 520" preserveAspectRatio="none" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="rgba(214,181,106,.28)"/>
+                <stop offset=".45" stop-color="rgba(114,243,182,.12)"/>
+                <stop offset="1" stop-color="rgba(80,120,255,.10)"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" x2="1" y1="1" y2="0">
+                <stop offset="0" stop-color="rgba(255,255,255,.08)"/>
+                <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+              <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="18"/>
+              </filter>
+            </defs>
+
+            <rect x="0" y="0" width="1200" height="520" fill="rgba(0,0,0,.0)"/>
+            <path d="M0,420 C220,360 280,430 520,380 C780,320 880,420 1200,340 L1200,520 L0,520 Z" fill="url(#g1)"/>
+            <circle cx="220" cy="150" r="120" fill="rgba(214,181,106,.22)" filter="url(#blur)"/>
+            <circle cx="920" cy="120" r="140" fill="rgba(114,243,182,.16)" filter="url(#blur)"/>
+            <circle cx="660" cy="250" r="110" fill="rgba(80,120,255,.14)" filter="url(#blur)"/>
+
+            <!-- “Verified pipeline” glyphs -->
+            <g opacity=".85">
+              <rect x="90" y="60" width="260" height="90" rx="18" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.12)"/>
+              <rect x="110" y="82" width="180" height="12" rx="6" fill="rgba(244,226,183,.55)"/>
+              <rect x="110" y="106" width="220" height="10" rx="5" fill="rgba(255,255,255,.16)"/>
+              <rect x="110" y="126" width="140" height="10" rx="5" fill="rgba(255,255,255,.12)"/>
+            </g>
+
+            <g opacity=".85">
+              <rect x="420" y="120" width="320" height="110" rx="20" fill="rgba(0,0,0,.22)" stroke="rgba(255,255,255,.12)"/>
+              <path d="M470 175 L520 205 L615 140" fill="none" stroke="rgba(114,243,182,.85)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="650" y="150" width="70" height="14" rx="7" fill="rgba(244,226,183,.45)"/>
+              <rect x="650" y="176" width="90" height="12" rx="6" fill="rgba(255,255,255,.14)"/>
+              <rect x="650" y="198" width="120" height="12" rx="6" fill="rgba(255,255,255,.10)"/>
+            </g>
+
+            <g opacity=".85">
+              <rect x="820" y="70" width="290" height="120" rx="20" fill="rgba(0,0,0,.22)" stroke="rgba(255,255,255,.12)"/>
+              <rect x="845" y="98" width="220" height="12" rx="6" fill="rgba(244,226,183,.50)"/>
+              <rect x="845" y="124" width="160" height="12" rx="6" fill="rgba(255,255,255,.14)"/>
+              <rect x="845" y="150" width="200" height="12" rx="6" fill="rgba(255,255,255,.10)"/>
+            </g>
+
+            <!-- subtle shine -->
+            <path d="M-80,40 C200,-60 420,20 650,-10 C900,-40 1120,10 1280,-30" stroke="url(#g2)" stroke-width="90" opacity=".35"/>
+          </svg>
+
+          <div class="caption">
+            <div class="capLeft">
+              <div class="shield" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4z" stroke="rgba(233,236,242,.85)" stroke-width="1.6"/>
+                  <path d="M8.5 12.2l2.2 2.2 4.8-5.2" stroke="rgba(114,243,182,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Verified Process</strong>
+                <div>Stripe receipts • Clear steps • Written policies</div>
+              </div>
+            </div>
+            <div class="capRight">Trust Engine v1 • “No chaos” workflow</div>
+          </div>
+        </div>
+
+        <h3>What you get (immediately)</h3>
+
+        <div class="trustStack">
+          <div class="trustItem">
+            <div class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12h16" stroke="rgba(233,236,242,.85)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M7 9l-3 3 3 3" stroke="rgba(244,226,183,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 9l3 3-3 3" stroke="rgba(114,243,182,.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>Pre-screen filter</b>
+              <p>We sort serious buyers from time-wasters so you don’t live in your inbox.</p>
+            </div>
+          </div>
+
+          <div class="trustItem">
+            <div class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M7 8h10M7 12h10M7 16h6" stroke="rgba(233,236,242,.85)" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" stroke="rgba(244,226,183,.55)" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div>
+              <b>Application polish</b>
+              <p>We tighten your story, docs, and timeline so you present clean and credible.</p>
+            </div>
+          </div>
+
+          <div class="trustItem">
+            <div class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22s8-4.5 8-10V5l-8-3-8 3v7c0 5.5 8 10 8 10z" stroke="rgba(114,243,182,.70)" stroke-width="1.6"/>
+                <path d="M9 12.2l2 2 4-4.6" stroke="rgba(244,226,183,.90)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <b>Scam defense</b>
+              <p>We show you the red flags and help you verify before you waste time or money.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="badgeRow">
+          <span class="badge">Stripe receipts</span>
+          <span class="badge">Clear policy</span>
+          <span class="badge">Serious-only</span>
+          <span class="badge">No brokerage</span>
+          <span class="badge">Process-first</span>
+        </div>
+      </aside>
+    </div>
+
+    <section id="how">
+      <div class="sectionTitle">
+        <div>
+          <h4>How it works</h4>
+          <p>One calm process. Zero chaos. You’ll always know the next step.</p>
+        </div>
+        <div class="muted">Tip: type <span class="kbd">/</span> in Telegram (once commands are set)</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">Step 01</div>
+          <b>Free pre-screen</b>
+          <p>Tell us what you need (rent/buy/land), your budget, timeline, and situation. This filters the noise.</p>
+        </div>
+        <div class="step">
+          <div class="n">Step 02</div>
+          <b>We send your plan</b>
+          <p>You get a clear action plan: what’s realistic, what to avoid, and how to move without getting played.</p>
+        </div>
+        <div class="step">
+          <div class="n">Step 03</div>
+          <b>Paid application lane</b>
+          <p>If you choose, pay the <b>processing & screening fee</b> and submit the full application to move forward.</p>
+        </div>
+        <div class="step">
+          <div class="n">Step 04</div>
+          <b>Fast follow-up</b>
+          <p>We review, verify, and respond with next steps. You’re not left hanging in limbo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="sectionTitle">
+        <div>
+          <h4>Pricing</h4>
+          <p>Choose your lane. The goal is to save you time, stress, and expensive mistakes.</p>
+        </div>
+        <div class="muted">Set your Stripe links below — placeholders are included.</div>
+      </div>
+
+      <div class="pricing">
+        <div class="priceCard">
+          <span class="tag">Start here</span>
+          <h5>Free Pre-Screen</h5>
+          <div class="money">
+            <div class="amt">$0</div>
+            <div class="per">intake</div>
+          </div>
+          <ul class="ul">
+            <li><span class="check">✓</span><span>Quick intake form (budget, timeline, location)</span></li>
+            <li><span class="check">✓</span><span>Basic scam-red-flag checklist</span></li>
+            <li><span class="check">✓</span><span>Clear “next step” recommendation</span></li>
+          </ul>
+          <p class="fine">Best for: people who want clarity before spending money.</p>
+          <div class="ctaRow">
+            <a class="btn secondary" href="#apply">Start Free</a>
+          </div>
+        </div>
+
+        <div class="priceCard featured" id="pay">
+          <span class="tag">Most picked</span>
+          <h5>Processing & Screening</h5>
+          <div class="money">
+            <div class="amt">$75</div>
+            <div class="per">one-time</div>
+          </div>
+          <ul class="ul">
+            <li><span class="check">✓</span><span>Serious-buyer lane (cuts the noise)</span></li>
+            <li><span class="check">✓</span><span>Full application review + consistency check</span></li>
+            <li><span class="check">✓</span><span>Verification guidance before you commit</span></li>
+            <li><span class="check">✓</span><span>Priority response</span></li>
+          </ul>
+          <p class="fine">
+            Non-refundable processing & screening fee (covers administrative work). Paying does not guarantee approval.
+          </p>
+          <div class="ctaRow">
+            <!-- TODO: Replace href with your Stripe Payment Link -->
+            <a class="btn" href="https://buy.stripe.com/REPLACE_ME" target="_blank" rel="noopener">Pay with Stripe</a>
+            <a class="btn secondary" href="#apply">Then Submit Application</a>
+          </div>
+        </div>
+
+        <div class="priceCard">
+          <span class="tag">VIP</span>
+          <h5>Concierge Assist</h5>
+          <div class="money">
+            <div class="amt">$149</div>
+            <div class="per">one-time</div>
+          </div>
+          <ul class="ul">
+            <li><span class="check">✓</span><span>Everything in Screening</span></li>
+            <li><span class="check">✓</span><span>Application polish (docs checklist + narrative cleanup)</span></li>
+            <li><span class="check">✓</span><span>Short call / voice guidance (if applicable)</span></li>
+            <li><span class="check">✓</span><span>Two follow-ups included</span></li>
+          </ul>
+          <p class="fine">Best for: people overwhelmed and needing hands-on structure.</p>
+          <div class="ctaRow">
+            <!-- TODO: Replace href with your Stripe Payment Link -->
+            <a class="btn" href="https://buy.stripe.com/REPLACE_ME_VIP" target="_blank" rel="noopener">Pay with Stripe</a>
+            <a class="btn secondary" href="#apply">Start Intake</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectionTitle">
+        <div>
+          <h4>Social proof</h4>
+          <p>These are example testimonials you can replace with real ones as you collect them.</p>
+        </div>
+        <div class="muted">Pro tip: screenshot real messages (with permission) later.</div>
+      </div>
+
+      <div class="testimonials">
+        <div class="quote">
+          <p>
+            “I was getting flooded by scams and weirdos. This process forced everything into one lane. Felt legit, fast, and clear.”
+          </p>
+          <div class="who">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <b>Client</b>
+              <span>renter • verified plan</span>
+            </div>
+          </div>
+        </div>
+        <div class="quote">
+          <p>
+            “The biggest thing was the calm. I knew exactly what to do next. I stopped spiraling and started moving.”
+          </p>
+          <div class="who">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <b>Client</b>
+              <span>buyer • application polish</span>
+            </div>
+          </div>
+        </div>
+        <div class="quote">
+          <p>
+            “Payment through Stripe + written policies = instant trust. No games. No mystery. Just a clean process.”
+          </p>
+          <div class="who">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <b>Client</b>
+              <span>land • serious-buyer lane</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="sectionTitle">
+        <div>
+          <h4>Free pre-screen + application intake</h4>
+          <p>Fill this out. If you already paid, include your Stripe email so we can match it.</p>
+        </div>
+        <div class="muted">This demo form stores locally unless you wire it to your backend.</div>
+      </div>
+
+      <div class="form">
+        <form id="intakeForm">
+          <div class="inputRow">
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" required />
+            </div>
+          </div>
+
+          <div class="inputRow">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+            </div>
+            <div>
+              <label for="stripeEmail">Stripe email (if paid)</label>
+              <input id="stripeEmail" name="stripeEmail" type="email" placeholder="Email used at checkout (optional)" />
+            </div>
+          </div>
+
+          <div class="inputRow">
+            <div>
+              <label for="need">What are you trying to get?</label>
+              <select id="need" name="need" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Rent (apartment/house)</option>
+                <option>Buy a home</option>
+                <option>Land</option>
+                <option>Rent-to-own / Owner finance</option>
+                <option>Not sure (help me decide)</option>
+              </select>
+            </div>
+            <div>
+              <label for="timeline">Timeline</label>
+              <select id="timeline" name="timeline" required>
+                <option value="" selected disabled>Select one</option>
+                <option>ASAP (0–2 weeks)</option>
+                <option>2–4 weeks</option>
+                <option>1–2 months</option>
+                <option>2–6 months</option>
+                <option>Just researching</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="inputRow">
+            <div>
+              <label for="budget">Monthly budget (or target payment)</label>
+              <input id="budget" name="budget" placeholder="$___ / month" required />
+            </div>
+            <div>
+              <label for="area">City/Area</label>
+              <input id="area" name="area" placeholder="City, state / neighborhoods" required />
+            </div>
+          </div>
+
+          <label for="notes">Anything we should know?</label>
+          <textarea id="notes" name="notes" placeholder="Credit comfort level, income situation, pets, etc."></textarea>
+
+          <div class="smallNote">
+            <b class="muted">Policy (plain language):</b> Free pre-screen is free. Paid lanes are for processing/screening/admin work and do not guarantee approval.
+            We are not a brokerage. We provide guidance, screening, and application assistance.
+          </div>
+
+          <div class="ctaRow" style="margin-top:14px">
+            <button class="btn" type="submit">Submit Intake</button>
+            <a class="btn secondary" href="#pricing">View Pricing</a>
+          </div>
+
+          <div class="success" id="ok">
+            Submitted. Copy saved locally. Next step: if you want priority handling, use “Pay with Stripe” above and include the same email here.
+          </div>
+          <div class="warn" id="bad">
+            Something didn’t look right. Check required fields and try again.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="sectionTitle">
+        <div>
+          <h4>FAQ</h4>
+          <p>Trust is built by clarity. Here’s the truth, up front.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Is this a scam?</summary>
+          <p>
+            No. Payments (if you choose a paid lane) are handled by Stripe, which provides receipts and buyer protections.
+            We also use written policies so nothing is “mystery meat.” You always know what you’re paying for: processing,
+            screening, and administrative work.
+          </p>
+        </details>
+        <details>
+          <summary>Do you guarantee approval or housing?</summary>
+          <p>
+            No. Nobody legitimate can guarantee approval. What we do guarantee is a clean process: organization, scam avoidance,
+            and strong application presentation so you move smarter and waste less time.
+          </p>
+        </details>
+        <details>
+          <summary>Are you a real estate broker or realtor?</summary>
+          <p>
+            No. We’re a housing navigation and application assistance service. We do not negotiate pricing, represent parties,
+            or take commissions. We help you prepare, screen, and navigate.
+          </p>
+        </details>
+        <details>
+          <summary>Why is there a fee?</summary>
+          <p>
+            Because time is the real cost. Paid lanes cover administrative processing, screening, coordination, and verification guidance.
+            This also filters out time-wasters so serious people get priority attention.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="cols">
+        <div>
+          <b style="color:rgba(244,226,183,.92);letter-spacing:.10em;text-transform:uppercase;font-size:12px">Lowkey Housing Assist</b>
+          <p class="muted" style="margin:10px 0 0">
+            We provide housing navigation, screening, and application assistance.
+            We are not a real estate brokerage and do not negotiate or represent buyers/sellers/landlords.
+          </p>
+        </div>
+        <div>
+          <b style="color:rgba(244,226,183,.92);letter-spacing:.10em;text-transform:uppercase;font-size:12px">Admin</b>
+          <p class="muted" style="margin:10px 0 0">
+            Replace Stripe links in the Pricing section.<br/>
+            Wire the intake form to your backend endpoint if desired (FastAPI).
+          </p>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="muted">
+        © <span id="yr"></span> Lowkey Housing Assist • Built for clarity, trust, and speed.
+      </div>
     </footer>
+  </main>
 
-    <script>
-        (function() {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+  <script>
+    // Year
+    document.getElementById("yr").textContent = new Date().getFullYear();
 
-            const faders = document.querySelectorAll('.ghost-fade-in, .manifesto-line');
-            const appearOptions = { threshold:0.2, rootMargin:"0px 0px -100px 0px" };
+    // Intake form: local proof-of-submission (replace with real POST later)
+    const form = document.getElementById("intakeForm");
+    const ok = document.getElementById("ok");
+    const bad = document.getElementById("bad");
 
-            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    const delay = entry.target.dataset.delay ? parseFloat(entry.target.dataset.delay)*1000 : 0;
-                    setTimeout(()=> entry.target.classList.add('is-visible'), delay);
-                    observer.unobserve(entry.target);
-                });
-            }, appearOptions);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      ok.style.display = "none";
+      bad.style.display = "none";
 
-            faders.forEach(fader => appearOnScroll.observe(fader));
+      const data = Object.fromEntries(new FormData(form).entries());
 
-            // particle canvas code (kept from your original)
-            const canvas = document.getElementById('particle-canvas'); if (canvas) {
-                const ctx = canvas.getContext('2d'); let particles = []; let mouse = {x:null,y:null,radius:150};
-                function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; initParticles(); }
-                window.addEventListener('mousemove', e=> { mouse.x = e.x; mouse.y = e.y; });
-                window.addEventListener('resize', resize);
-                canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+      // simple validation
+      if (!data.name || !data.phone || !data.email || !data.need || !data.timeline || !data.budget || !data.area) {
+        bad.style.display = "block";
+        return;
+      }
 
-                class Particle {
-                    constructor(x,y){ this.x=x; this.y=y; this.size=Math.random()*2+0.5; this.baseX=this.x; this.baseY=this.y; this.density=(Math.random()*30)+1; this.color='rgba(0,255,153,'+(Math.random()*0.5+0.2)+')'; }
-                    draw(){ ctx.fillStyle=this.color; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.closePath(); ctx.fill(); }
-                    update(){
-                        let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx*dx + dy*dy);
-                        if (!distance) distance = 1;
-                        let forceDirectionX = dx / distance; let forceDirectionY = dy / distance;
-                        let maxDistance = mouse.radius; let force = (maxDistance - distance) / maxDistance;
-                        let directionX = forceDirectionX * force * this.density;
-                        let directionY = forceDirectionY * force * this.density;
-                        if (distance < mouse.radius) { this.x -= directionX; this.y -= directionY; } else {
-                            if (this.x !== this.baseX) { let dx = this.x - this.baseX; this.x -= dx / 10; }
-                            if (this.y !== this.baseY) { let dy = this.y - this.baseY; this.y -= dy / 10; }
-                        }
-                        this.draw();
-                    }
-                }
+      // store locally as a placeholder (so you can see it "works")
+      const key = "lowkey_housing_intakes";
+      const existing = JSON.parse(localStorage.getItem(key) || "[]");
+      existing.push({ ...data, submittedAt: new Date().toISOString() });
+      localStorage.setItem(key, JSON.stringify(existing));
 
-                function initParticles(){
-                    particles = [];
-                    let numberOfParticles = (canvas.width * canvas.height) / 9000;
-                    for (let i = 0; i < numberOfParticles; i++) { let x = Math.random() * canvas.width; let y = Math.random() * canvas.height; particles.push(new Particle(x,y)); }
-                }
-                function animateCanvas(){ requestAnimationFrame(animateCanvas); ctx.clearRect(0,0,canvas.width,canvas.height); for (let i=0;i<particles.length;i++) particles[i].update(); }
-                initParticles(); animateCanvas();
-            }
+      form.reset();
+      ok.style.display = "block";
+    });
+  </script>
+</body>
+</html>
 
-            // magnetic button effect
-            const magneticTargets = document.querySelectorAll('.magnetic-target, .cta-button');
-            magneticTargets.forEach(target => {
-                target.addEventListener('mousemove', (e) => {
-                    const rect = target.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2; const centerY = rect.height / 2;
-                    const moveX = (x - centerX) * 0.2; const moveY = (y - centerY) * 0.2;
-                    target.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                });
-                target.addEventListener('mouseleave', () => { target.style.transform = `translate(0, 0)`; });
-            });
 
         })();
     </script>
