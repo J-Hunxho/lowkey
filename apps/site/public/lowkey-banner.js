@@ -1,10 +1,24 @@
-(async function(){
-  const status = await fetch("https://<your-worker-subdomain>.workers.dev/api/v1/vault/status").then(r=>r.json()).catch(()=>null);
+(async function () {
+  const workerBase = window.LOWKEY_WORKER_BASE_URL || "";
+  if (!workerBase) {
+    return;
+  }
 
+  const getJSON = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return null;
+      return response.json();
+    } catch {
+      return null;
+    }
+  };
+
+  const status = await getJSON(`${workerBase}/api/v1/vault/status`);
   const founderLeft = status?.founder ?? 100;
   const innerLeft = status?.inner ?? 30;
 
-  const modal = document.createElement('div');
+  const modal = document.createElement("div");
   modal.innerHTML = `
     <div class="lk-backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9999">
       <div class="lk-modal" role="dialog" aria-modal="true" style="max-width:640px;width:92%;background:#0b0b0c;color:#f5f5f7;border:1px solid #2a2a2e;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);overflow:hidden">
@@ -28,7 +42,7 @@
           </div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:0 1.25rem 1.1rem 1.25rem">
-          <div style="font-size:.85rem;color:#a9a9ad">Secure checkout via Square • Keys are non-transferable at this stage</div>
+          <div style="font-size:.85rem;color:#a9a9ad">Secure checkout • Keys are non-transferable at this stage</div>
           <button id="lkClose" style="background:transparent;border:none;color:#a9a9ad;font-size:.95rem;cursor:pointer">Close</button>
         </div>
       </div>
@@ -36,13 +50,20 @@
   document.body.appendChild(modal);
 
   const post = async (endpoint) => {
-    const r = await fetch(`https://<your-worker-subdomain>.workers.dev${endpoint}`, {method:"POST"});
-    if(!r.ok) return alert("Sold out or unavailable.");
-    const {url} = await r.json();
-    location.href = url;
+    try {
+      const response = await fetch(`${workerBase}${endpoint}`, { method: "POST" });
+      if (!response.ok) {
+        alert("Sold out or unavailable.");
+        return;
+      }
+      const { url } = await response.json();
+      if (url) location.href = url;
+    } catch {
+      alert("Checkout is temporarily unavailable.");
+    }
   };
 
-  modal.querySelector("#lkFounder").onclick = ()=>post("/api/v1/vault/checkout/founder");
-  modal.querySelector("#lkInner").onclick = ()=>post("/api/v1/vault/checkout/inner");
-  modal.querySelector("#lkClose").onclick = ()=>modal.remove();
+  modal.querySelector("#lkFounder").onclick = () => post("/api/v1/vault/checkout/founder");
+  modal.querySelector("#lkInner").onclick = () => post("/api/v1/vault/checkout/inner");
+  modal.querySelector("#lkClose").onclick = () => modal.remove();
 })();
